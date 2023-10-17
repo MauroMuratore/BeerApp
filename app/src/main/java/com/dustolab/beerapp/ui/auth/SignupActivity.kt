@@ -1,15 +1,16 @@
-package com.dustolab.beerapp.auth
+package com.dustolab.beerapp.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.dustolab.beerapp.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.dustolab.beerapp.R
+import com.dustolab.beerapp.logic.UserRepository
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 class SignupActivity : ComponentActivity() {
@@ -37,6 +38,11 @@ class SignupActivity : ComponentActivity() {
             if(password==confermaPassword){
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
                     if(it.isSuccessful){
+                        val idUser = auth.currentUser?.uid
+                        val repUser = UserRepository()
+                        if (idUser != null) {
+                            repUser.writeNewUser(idUser, username, email)
+                        }
                         startActivity(Intent(this, MainActivity::class.java))
                     }else{
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()

@@ -13,6 +13,7 @@
         android:scaleType="fitXY"
         android:src="@drawable/schiuma" />
 
+
     <ImageView
         android:layout_width="85dp"
         android:layout_height="85dp"
@@ -24,6 +25,7 @@
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         android:layout_marginTop="70dp"
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/et_style"
@@ -40,6 +42,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginHorizontal="30dp"
         android:background="@drawable/et_style"
+        android:backgroundTint="@color/white"
         android:paddingVertical="15dp"
         android:paddingStart="10dp"
         android:ems="10"

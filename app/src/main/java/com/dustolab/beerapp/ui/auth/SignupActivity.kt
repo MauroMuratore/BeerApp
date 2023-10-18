@@ -11,6 +11,7 @@ import com.dustolab.beerapp.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.UserRepository
+import com.dustolab.beerapp.ui.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 class SignupActivity : ComponentActivity() {
@@ -43,7 +44,7 @@ class SignupActivity : ComponentActivity() {
                         if (idUser != null) {
                             repUser.writeNewUser(idUser, username, email)
                         }
-                        startActivity(Intent(this, MainActivity::class.java))
+                        startActivity(Intent(this, HomeActivity::class.java))
                     }else{
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }

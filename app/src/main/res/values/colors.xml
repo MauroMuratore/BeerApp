@@ -10,4 +10,7 @@
 
     <color name="yellow">#FFEBBB40</color>
     <color name="dark_brown">#FF1C0A01</color>
+    <color name="chocolate">#FF874000</color>
+    <color name="brown_bean">#FF4B120D</color>
+    <color name="black_bean">#FF2B0504</color>
 </resources>

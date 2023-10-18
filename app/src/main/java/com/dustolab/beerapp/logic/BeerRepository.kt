@@ -19,14 +19,14 @@ import java.util.Vector
 
 class BeerRepository(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.Default,
-    private val database: CollectionReference = Firebase.firestore.collection(PATH)
+    private val dbReference: CollectionReference = Firebase.firestore.collection(PATH)
 ) {
 
     suspend fun loadBeer(): List<Beer>{
         return withContext(ioDispatcher) {
             var beerList = ArrayList<Beer>();
 
-            val query = database.get().await()
+            val query = dbReference.get().await()
             query.documents.forEach {
                 val beer = it.toObject(Beer::class.java)
                 beerList.add(beer!!)

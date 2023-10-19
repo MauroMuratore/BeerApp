@@ -1,8 +1,7 @@
-package com.dustolab.beerapp.logic
+package com.dustolab.beerapp.logic.usecase
 
-import com.dustolab.beerapp.entity.Beer
-import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
+import com.dustolab.beerapp.logic.repository.BeerRepository
+import com.dustolab.beerapp.model.Beer
 
 class BeerUseCase(
     private val beerRepository: BeerRepository = BeerRepository()

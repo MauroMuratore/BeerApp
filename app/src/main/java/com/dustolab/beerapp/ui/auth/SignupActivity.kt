@@ -2,15 +2,13 @@ package com.dustolab.beerapp.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
-import com.dustolab.beerapp.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.dustolab.beerapp.R
-import com.dustolab.beerapp.logic.UserRepository
+import com.dustolab.beerapp.logic.repository.UserRepository
 import com.dustolab.beerapp.ui.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

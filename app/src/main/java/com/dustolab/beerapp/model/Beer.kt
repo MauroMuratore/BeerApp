@@ -1,4 +1,4 @@
-package com.dustolab.beerapp.entity
+package com.dustolab.beerapp.model
 
 import com.google.firebase.database.Exclude
 import com.google.firebase.database.IgnoreExtraProperties
@@ -11,7 +11,7 @@ data class Beer(
     var descriptionIt: String? = null,
     var alcoholContent: Double? = null,
     var style: String? = null,
-    var brewery: String? = null
+    var brewery: String? = null,
 ){
 
     @Exclude

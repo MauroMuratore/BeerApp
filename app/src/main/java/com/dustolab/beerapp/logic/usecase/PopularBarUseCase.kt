@@ -5,11 +5,12 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.QuerySnapshot
 
 class PopularBarUseCase (
+    val limit : Long = -1,
     private val barRepository: BarRepository = BarRepository()
 ): UseCase {
 
     override fun useCase(): Task<QuerySnapshot> {
-       return barRepository.loadPopularBar()
+       return barRepository.loadPopularBar(limit)
     }
 
 }

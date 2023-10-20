@@ -2,6 +2,7 @@ package com.dustolab.beerapp.logic.repository
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -14,23 +15,39 @@ class BeerRepository(
 ) {
 
 
-
-    fun loadFavoriteBeers(uid: String): Task<QuerySnapshot>{
+    fun loadAllBeer(): Task<QuerySnapshot>{
         return dbReference
-            .whereArrayContains(FAVORITE_BY, uid)
             .get()
     }
 
-    fun loadPopularBeers(): Task<QuerySnapshot>{
-        return dbReference
-            .limit(5)
-            .get()
+    fun loadFavoriteBeers(uid: String, limit: Long = -1): Task<QuerySnapshot>{
+        if(limit > 0)
+            return dbReference
+                .whereArrayContains(FAVORITE_BY, uid)
+                .limit(limit)
+                .get()
+        else
+            return dbReference
+                .whereArrayContains(FAVORITE_BY, uid)
+                .get()
+    }
+
+    fun loadPopularBeers(limit: Long = -1): Task<QuerySnapshot>{
+        if(limit >0)
+            return dbReference
+                .orderBy(RATING,Query.Direction.DESCENDING)
+                .limit(limit)
+                .get()
+        else
+            return dbReference
+                .orderBy(RATING, Query.Direction.DESCENDING)
+                .get()
     }
 
     companion object{
         const val PATH : String = "beers"
-        const val ALCOHOL_CONTENT: String = "alcohol_content"
         const val FAVORITE_BY: String = "favorite_by"
+        const val RATING: String = "rating"
     }
 
 }

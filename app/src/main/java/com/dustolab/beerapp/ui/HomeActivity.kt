@@ -1,7 +1,10 @@
 package com.dustolab.beerapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +16,7 @@ import com.dustolab.beerapp.logic.usecase.UseCase
 import com.dustolab.beerapp.model.Bar
 import com.dustolab.beerapp.model.Beer
 import com.dustolab.beerapp.model.Record
-import com.dustolab.beerapp.ui.adapter.CardAdapter
+import com.dustolab.beerapp.ui.adapter.CardPreviewAdapter
 
 
 class HomeActivity : ComponentActivity() {
@@ -22,22 +25,26 @@ class HomeActivity : ComponentActivity() {
         setContentView(R.layout.activity_home)
 
         setAdapter(
-            FavoriteBeerUseCase(),
+            FavoriteBeerUseCase(5),
             R.id.favorite_beers_recycler,
             Beer::class.java
         )
 
         setAdapter(
-            PopularBeerUseCase(),
+            PopularBeerUseCase(5),
             R.id.popular_beers_recycler,
             Beer::class.java
         )
 
         setAdapter(
-            PopularBarUseCase(),
+            PopularBarUseCase(5),
             R.id.popular_bar_recycler,
             Bar::class.java
         )
+
+        val favoriteBeerBtn = findViewById<Button>(R.id.favorite_beers_btn)
+        favoriteBeerBtn.setOnClickListener{ startBeerList()}
+
     }
 
     private fun <T:Record> setAdapter(useCase: UseCase, recyclerViewId: Int, clazz: Class<T>){
@@ -51,10 +58,15 @@ class HomeActivity : ComponentActivity() {
                     val elem = doc.toObject(clazz)
                     list.add(elem)
                 }
-                val cardAdapter = CardAdapter(this, list)
+                val cardAdapter = CardPreviewAdapter(this, list)
                 recyclerView.adapter=cardAdapter
             }
     }
+
+    fun startBeerList(){
+        startActivity(Intent(this, BeerListActivity::class.java))
+    }
+
 }
 
 

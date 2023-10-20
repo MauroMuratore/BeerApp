@@ -29,8 +29,7 @@
             android:background="@drawable/rounded_style"
             android:backgroundTint="@color/white"
             android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
+            android:hint="Cerca all'interno dell'app"
             android:paddingVertical="15dp"
             android:paddingStart="10dp" />
 
@@ -67,6 +66,17 @@
                 android:layout_height="250dp"
                 />
 
+            <Button
+                android:id="@+id/favorite_beers_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:backgroundTint="@color/chocolate"
+                android:background="@drawable/rounded_style"
+                android:text="Mostra tutte"
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -83,6 +93,18 @@
                 />
 
 
+            <Button
+                android:id="@+id/popular_beers_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:backgroundTint="@color/chocolate"
+                android:background="@drawable/rounded_style"
+                android:text="Mostra tutte"
+                />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +117,18 @@
                 android:id="@+id/popular_bar_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                />
+
+            <Button
+                android:id="@+id/popular_bar_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_gravity="end"
+                android:padding="10dp"
+                android:backgroundTint="@color/chocolate"
+                android:background="@drawable/rounded_style"
+                android:text="Mostra tutte"
                 />
 
 

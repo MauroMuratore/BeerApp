@@ -8,7 +8,6 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 
-import com.dustolab.beerapp.MainActivity
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.ui.HomeActivity
 import com.google.firebase.auth.FirebaseAuth

@@ -7,6 +7,11 @@ data class Bar(
     var beerList: List<BeerInBar>? = null,
     var drink: List<MenuEntry>? = null,
     var food: List<MenuEntry>? = null,
+    var rating: Double? = null,
     var favoriteBy: List<String>? = null
 ): Record(){
+
+
+
+
 }

@@ -12,9 +12,9 @@ import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
 import com.dustolab.beerapp.model.Record
 
-class CardAdapter(
+class CardPreviewAdapter(
     val context: Context,
-    val recordist: List<Record>,
+    val recordList: List<Record>,
     private val imageRepository : ImageRepository = ImageRepository()
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -24,25 +24,25 @@ class CardAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.card_beer, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.card_preview, parent, false)
         return CardHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return recordist.size
+        return recordList.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val beer = recordist[position]
+        val record = recordList[position]
         holder as CardHolder
 
-        imageRepository.loadImage(beer.uid!!)
+        imageRepository.loadImage(record.uid!!)
             .addOnSuccessListener { imageByte->
                 val bitmap =  BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size);
                 holder.image.setImageBitmap(bitmap)
             }
 
-        holder.text.text = beer.name
+        holder.text.text = record.name
     }
 
 

@@ -67,6 +67,8 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx")
     implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
+    implementation("com.firebaseui:firebase-ui-storage:7.2.0")
+    implementation("com.github.bumptech.glide:glide:4.14.2")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.2.1")

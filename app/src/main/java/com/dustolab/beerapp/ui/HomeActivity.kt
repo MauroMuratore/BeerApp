@@ -3,32 +3,58 @@ package com.dustolab.beerapp.ui
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
-import androidx.activity.viewModels
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
-import com.dustolab.beerapp.viewModel.HomeViewModel
-import kotlinx.coroutines.launch
+import com.dustolab.beerapp.logic.usecase.FavoriteBeerUseCase
+import com.dustolab.beerapp.logic.usecase.PopularBarUseCase
+import com.dustolab.beerapp.logic.usecase.PopularBeerUseCase
+import com.dustolab.beerapp.logic.usecase.UseCase
+import com.dustolab.beerapp.model.Bar
+import com.dustolab.beerapp.model.Beer
+import com.dustolab.beerapp.model.Record
+import com.dustolab.beerapp.ui.adapter.CardAdapter
 
 
 class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-        val viewModel: HomeViewModel by viewModels()
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.loadBeer()
-                viewModel.uiState.collect{ it ->
-                    it.listBeer?.forEach{
-                        Log.d("BEER_Activity", it.name!!)
-                    }
-                }
-            }
-        }
+
+        setAdapter(
+            FavoriteBeerUseCase(),
+            R.id.favorite_beers_recycler,
+            Beer::class.java
+        )
+
+        setAdapter(
+            PopularBeerUseCase(),
+            R.id.popular_beers_recycler,
+            Beer::class.java
+        )
+
+        setAdapter(
+            PopularBarUseCase(),
+            R.id.popular_bar_recycler,
+            Bar::class.java
+        )
     }
 
-
-
+    private fun <T:Record> setAdapter(useCase: UseCase, recyclerViewId: Int, clazz: Class<T>){
+        val recyclerView = findViewById<RecyclerView>(recyclerViewId)
+        recyclerView.layoutManager=LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        val list = ArrayList<T>()
+        useCase.useCase()
+            .addOnSuccessListener { documents->
+                Log.d("BEER_ACTIVITY", "${documents.size()}")
+                documents.forEach{doc->
+                    val elem = doc.toObject(clazz)
+                    list.add(elem)
+                }
+                val cardAdapter = CardAdapter(this, list)
+                recyclerView.adapter=cardAdapter
+            }
+    }
 }
+
+

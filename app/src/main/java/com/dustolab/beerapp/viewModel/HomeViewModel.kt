@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dustolab.beerapp.model.Beer
 import com.dustolab.beerapp.logic.repository.BeerRepository
-import com.dustolab.beerapp.logic.usecase.BeerUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,7 +17,6 @@ data class ListBeer(
 
 
 class HomeViewModel(
-    private val beerUseCase: BeerUseCase = BeerUseCase(),
     private val beerRepo: BeerRepository = BeerRepository()
 ) : ViewModel(){
 
@@ -30,7 +28,6 @@ class HomeViewModel(
         viewModelScope.launch {
             _uiState.update {currentState ->
                 currentState.copy(
-                    listBeer = beerUseCase.getBeers()
                 )
 
             }

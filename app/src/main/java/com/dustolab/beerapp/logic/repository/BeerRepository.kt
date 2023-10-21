@@ -46,7 +46,7 @@ class BeerRepository(
 
     companion object{
         const val PATH : String = "beers"
-        const val FAVORITE_BY: String = "favorite_by"
+        const val FAVORITE_BY: String = "favoriteBy"
         const val RATING: String = "rating"
     }
 

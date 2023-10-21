@@ -1,6 +1,10 @@
 package com.dustolab.beerapp.ui
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.LinearLayout
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +18,27 @@ class BeerListActivity : ComponentActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beer_list)
+
+        setRecyclerView()
+        setFilterView()
+
+    }
+
+    private fun setFilterView(){
+        val filterButton = findViewById<ImageButton>(R.id.filter_button)
+        val filterView = findViewById<LinearLayout>(R.id.filter_view)
+        filterButton.setOnClickListener{
+            if(filterView.visibility == View.GONE){
+                filterView.visibility = View.VISIBLE
+            }else{
+                filterView.visibility = View.GONE
+            }
+        }
+    }
+
+
+    private fun setRecyclerView(){
+        //creo il recycler view
         val recyclerView = findViewById<RecyclerView>(R.id.all_beer_recycler)
         recyclerView.layoutManager=LinearLayoutManager(this)
         val beerList = ArrayList<Beer>()

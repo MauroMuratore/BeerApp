@@ -49,7 +49,6 @@ class BeerListActivity : ComponentActivity(){
                     val elem = doc.toObject(Beer::class.java)
                     beerList.add(elem)
                 }
-
                 val cardBeerAdapter = CardBeerAdapter(this, beerList)
                 recyclerView.adapter=cardBeerAdapter
             }

@@ -11,6 +11,13 @@ class BarRepository(
     private val dbReference: CollectionReference = Firebase.firestore.collection(PATH)
 ) {
 
+    fun getBar(uid:String): Task<QuerySnapshot>{
+        return dbReference
+            .whereEqualTo(UID, uid)
+            .get()
+    }
+
+
     fun loadPopularBar(limit : Long = -1): Task<QuerySnapshot>{
         if(limit > 0)
             return dbReference
@@ -23,6 +30,7 @@ class BarRepository(
                 .get()
     }
     companion object{
+        const val UID : String = "uid"
         const val PATH: String = "bar"
         const val RATING: String = "rating"
     }

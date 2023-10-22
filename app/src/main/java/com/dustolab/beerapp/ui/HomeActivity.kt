@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,6 +45,8 @@ class HomeActivity : ComponentActivity() {
 
         val favoriteBeerBtn = findViewById<Button>(R.id.favorite_beers_btn)
         favoriteBeerBtn.setOnClickListener{ startBeerList()}
+        val btnSearch = findViewById<ImageButton>(R.id.btn_search)
+        btnSearch.setOnClickListener{startSocial()}
 
     }
 
@@ -65,6 +68,10 @@ class HomeActivity : ComponentActivity() {
 
     fun startBeerList(){
         startActivity(Intent(this, BeerListActivity::class.java))
+    }
+
+    fun startSocial(){
+        startActivity(Intent(this, SocialActivity::class.java))
     }
 
 }

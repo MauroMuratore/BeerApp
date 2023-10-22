@@ -20,6 +20,12 @@ class BeerRepository(
             .get()
     }
 
+    fun getBeer(uid: String): Task<QuerySnapshot>{
+        return dbReference
+            .whereEqualTo(UID, uid)
+            .get()
+    }
+
     fun loadFavoriteBeers(uid: String, limit: Long = -1): Task<QuerySnapshot>{
         if(limit > 0)
             return dbReference
@@ -45,6 +51,7 @@ class BeerRepository(
     }
 
     companion object{
+        const val UID : String = "uid"
         const val PATH : String = "beers"
         const val FAVORITE_BY: String = "favoriteBy"
         const val RATING: String = "rating"

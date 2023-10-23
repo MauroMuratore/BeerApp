@@ -1,10 +1,11 @@
-package com.dustolab.beerapp.ui
+package com.dustolab.beerapp.ui.fragment
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import android.view.View
+import com.dustolab.beerapp.R
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.usecase.AllBarReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.AllBeerReviewsUseCase
 import com.dustolab.beerapp.model.BarReview
@@ -12,16 +13,14 @@ import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review
 import com.dustolab.beerapp.ui.adapter.PostAdapter
 
-class SocialActivity : ComponentActivity(){
+class SocialFragment : Fragment(R.layout.fragment_social){
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_social)
-
-        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(context)
         val reviewList = ArrayList<Review>()
-        val postAdapter = PostAdapter(this, reviewList)
+        val postAdapter = PostAdapter(requireContext(), reviewList)
         recyclerView.adapter = postAdapter
         val allBarReviewsUseCase = AllBarReviewsUseCase()
         val allBeerReviewsUseCase = AllBeerReviewsUseCase()
@@ -46,4 +45,6 @@ class SocialActivity : ComponentActivity(){
 
             }
     }
+
+
 }

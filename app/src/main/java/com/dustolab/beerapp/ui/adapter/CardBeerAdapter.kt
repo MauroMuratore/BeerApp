@@ -25,7 +25,7 @@ class CardBeerAdapter(
         val beerTitle = itemView.findViewById<TextView>(R.id.tv_title)
         val beerAlcoholContent = itemView.findViewById<TextView>(R.id.tv_alcohol_content)
         val beerStyle = itemView.findViewById<TextView>(R.id.tv_style)
-        val beerRating = itemView.findViewById<RatingBar>(R.id.rating_bar)
+        val beerRating = itemView.findViewById<RatingBar>(R.id.rating_beer)
 
     }
 
@@ -41,7 +41,7 @@ class CardBeerAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val beer = beerList[position]
         holder as CardBeerHolder
-
+        Log.d("CARD_BEER_ADAPTER", "${beer}")
         imageRepository.loadImage(beer.uid!!)
             .addOnSuccessListener { imageByte->
                 val bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)

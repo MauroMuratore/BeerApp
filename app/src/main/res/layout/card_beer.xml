@@ -86,7 +86,7 @@
                 >
 
                 <RatingBar
-                    android:id="@+id/rating_bar"
+                    android:id="@+id/rating_beer"
                     style="@android:style/Widget.Material.RatingBar.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

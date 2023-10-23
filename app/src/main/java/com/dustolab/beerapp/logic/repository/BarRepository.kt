@@ -11,6 +11,10 @@ class BarRepository(
     private val dbReference: CollectionReference = Firebase.firestore.collection(PATH)
 ) {
 
+    fun loadAllBar(): Task<QuerySnapshot>{
+        return dbReference.get()
+    }
+
     fun getBar(uid:String): Task<QuerySnapshot>{
         return dbReference
             .whereEqualTo(UID, uid)

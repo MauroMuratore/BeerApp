@@ -4,7 +4,7 @@ import com.dustolab.beerapp.logic.repository.BeerRepository
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.QuerySnapshot
 
-class AllBeerCaseUse(
+class AllBeerUseCase(
     private val beerRepository: BeerRepository = BeerRepository()
 ) :UseCase{
 

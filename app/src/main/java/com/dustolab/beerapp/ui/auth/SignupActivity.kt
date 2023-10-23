@@ -43,6 +43,7 @@ class SignupActivity : ComponentActivity() {
                             repUser.writeNewUser(idUser, username, email)
                         }
                         startActivity(Intent(this, HomeActivity::class.java))
+                        finish()
                     }else{
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }

@@ -35,6 +35,7 @@ class LoginActivity : ComponentActivity() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if(it.isSuccessful){
                 startActivity(Intent(this, HomeActivity::class.java))
+                finish()
             }else{
                 Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
             }

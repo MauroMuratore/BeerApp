@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/rounded_style"
         app:cardCornerRadius="15dp"
-        android:backgroundTint="@color/chocolate"
+        android:backgroundTint="?attr/cardBackgroundColor"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout

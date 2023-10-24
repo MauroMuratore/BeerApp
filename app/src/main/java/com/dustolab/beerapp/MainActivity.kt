@@ -1,6 +1,8 @@
 package com.dustolab.beerapp
 
 import android.accounts.AccountManager
+import android.app.UiModeManager
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -14,10 +16,7 @@ import com.dustolab.beerapp.ui.fragment.UserAreaFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity:  AppCompatActivity(R.layout.activity_main) {
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        val am = AccountManager.get(this)
-
         super.onCreate(savedInstanceState)
         if ( savedInstanceState == null)
             supportFragmentManager.commit {

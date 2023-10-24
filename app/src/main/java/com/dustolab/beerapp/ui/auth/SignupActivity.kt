@@ -9,6 +9,7 @@ import androidx.activity.ComponentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.UserRepository
+import com.dustolab.beerapp.logic.usecase.auth.SignupUseCase
 import com.dustolab.beerapp.ui.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -19,7 +20,6 @@ class SignupActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
         auth = Firebase.auth
-
     }
 
     fun switchToLogin(v: View){
@@ -35,19 +35,16 @@ class SignupActivity : ComponentActivity() {
         if( username.isNotEmpty() && email.isNotEmpty() &&
             password.isNotEmpty() && confermaPassword.isNotEmpty()){
             if(password==confermaPassword){
-                auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-                    if(it.isSuccessful){
-                        val idUser = auth.currentUser?.uid
-                        val repUser = UserRepository()
-                        if (idUser != null) {
-                            repUser.writeNewUser(idUser, username, email)
+                val signupUseCase = SignupUseCase(username, email, password)
+                signupUseCase.useCase()
+                    .addOnCompleteListener {
+                        if(it.isSuccessful){
+                            startActivity(Intent(this, HomeActivity::class.java))
+                            finish()
+                        }else{
+                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                         }
-                        startActivity(Intent(this, HomeActivity::class.java))
-                        finish()
-                    }else{
-                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
-                }
             }else{
                 Toast.makeText(this, "Le password sono diverse", Toast.LENGTH_SHORT).show()
             }

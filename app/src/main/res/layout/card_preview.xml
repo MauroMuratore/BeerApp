@@ -17,8 +17,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/rounded_style"
+        android:backgroundTint="?attr/cardBackgroundColor"
         app:cardCornerRadius="15dp"
-        android:backgroundTint="@color/chocolate"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout

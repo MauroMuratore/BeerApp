@@ -72,30 +72,31 @@
                 android:id="@+id/filter_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:orientation="vertical"
+                android:paddingHorizontal="15dp"
                 >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Filtro 1"
+                    android:text="Stile"
                     />
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Filtro 2"
+                    android:text="Contenuto alcolico"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Filtro 3"
+                    android:text="Valutazione"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Filtro 4"
+                    android:text="Preferite"
                     />
 
             </LinearLayout>

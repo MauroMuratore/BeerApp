@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.dustolab.beerapp.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.UserRepository
@@ -13,12 +15,11 @@ import com.dustolab.beerapp.logic.usecase.auth.SignupUseCase
 import com.dustolab.beerapp.ui.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-class SignupActivity : ComponentActivity() {
+class SignupActivity : AppCompatActivity(R.layout.activity_sign_up) {
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
         auth = Firebase.auth
     }
 
@@ -39,7 +40,7 @@ class SignupActivity : ComponentActivity() {
                 signupUseCase.useCase()
                     .addOnCompleteListener {
                         if(it.isSuccessful){
-                            startActivity(Intent(this, HomeActivity::class.java))
+                            startActivity(Intent(this, MainActivity::class.java))
                             finish()
                         }else{
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()

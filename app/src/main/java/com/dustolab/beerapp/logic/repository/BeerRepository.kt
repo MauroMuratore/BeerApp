@@ -2,6 +2,7 @@ package com.dustolab.beerapp.logic.repository
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
@@ -17,12 +18,26 @@ class BeerRepository(
 
     fun loadAllBeer(): Task<QuerySnapshot>{
         return dbReference
+            .orderBy(RATING, Query.Direction.DESCENDING)
             .get()
     }
 
     fun getBeer(uid: String): Task<QuerySnapshot>{
         return dbReference
             .whereEqualTo(UID, uid)
+            .get()
+    }
+
+    fun searchNameBeer(filter: Filter): Task<QuerySnapshot>{
+        return dbReference
+            .where(filter)
+            .get()
+    }
+
+    fun loadFilterBeer(filter: Filter): Task<QuerySnapshot>{
+        return dbReference
+            .where(filter)
+            .orderBy(RATING, Query.Direction.DESCENDING)
             .get()
     }
 
@@ -55,6 +70,10 @@ class BeerRepository(
         const val PATH : String = "beers"
         const val FAVORITE_BY: String = "favoriteBy"
         const val RATING: String = "rating"
+        const val STYLE : String = "style"
+        const val ALCOHOL_CONTENT : String = "alcoholContent"
+        const val NAME: String = "name"
     }
+
 
 }

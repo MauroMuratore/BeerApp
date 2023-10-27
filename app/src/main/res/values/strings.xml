@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BeerApp</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoibWF1cm9tdXJhdG9yZSIsImEiOiJjbG82NTViMXUwMmNuMm1wMDd3YjhsM213In0.TgRfoStqumd-QFnB7_Ts9A</string>
 </resources>

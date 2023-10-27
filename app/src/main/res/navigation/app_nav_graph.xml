@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/fragment_home"
+    >
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.dustolab.beerapp.ui.fragment.HomeFragment"
+        android:label="Home"
+        tool:layout="@layout/fragment_home"
+        >
+        <action
+            android:id="@+id/action_home_to_beer_list"
+            app:destination="@id/fragment_beer_list"
+            app:popUpTo="@id/fragment_home"
+            app:popUpToInclusive="true"
+            >
+        </action>
+        <action
+            android:id="@+id/action_home_to_map"
+            app:destination="@id/fragment_map"
+            app:popUpTo="@id/fragment_home"
+            app:popUpToInclusive="true"
+            >
+        </action>
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_home"
+        app:destination="@id/fragment_home"
+        />
+
+    <fragment
+        android:id="@+id/fragment_social"
+        android:name="com.dustolab.beerapp.ui.fragment.SocialFragment"
+        android:label="Social"
+        tool:layout="@layout/fragment_user_area"
+        >
+    </fragment>
+    <action
+        android:id="@+id/action_global_social"
+        app:destination="@id/fragment_social"
+        />
+
+    <fragment
+        android:id="@+id/fragment_map"
+        android:name="com.dustolab.beerapp.ui.fragment.MapFragment"
+        android:label="Bar"
+        tool:layout="@layout/fragment_map"
+
+        >
+    </fragment>
+
+    <action
+        android:id="@+id/action_gloabl_map"
+        app:destination="@id/fragment_map"
+        />
+
+    <fragment
+        android:id="@+id/fragment_beer_list"
+        android:name="com.dustolab.beerapp.ui.fragment.BeerListFragment"
+        android:label="Bar"
+        tool:layout="@layout/fragment_beer_list"
+        >
+        <argument
+            android:name="beerListUseCase"
+            app:argType="integer"
+            android:defaultValue="0"
+            >
+
+        </argument>
+
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_beer_list"
+        app:destination="@id/fragment_beer_list"
+        />
+    <fragment
+        android:id="@+id/fragment_user_area"
+        android:name="com.dustolab.beerapp.ui.fragment.UserAreaFragment"
+        android:label="Account"
+        tool:layout="@layout/fragment_user_area"
+        >
+    </fragment>
+
+    <action
+        android:id="@+id/action_gloabl_user_area"
+        app:destination="@id/fragment_user_area"
+        />
+
+
+</navigation>

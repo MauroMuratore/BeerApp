@@ -3,8 +3,10 @@ package com.dustolab.beerapp.ui.fragment
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.core.os.bundleOf
 import com.dustolab.beerapp.R
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.logic.usecase.FavoriteBeerUseCase
@@ -35,6 +37,24 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
             R.id.popular_bar_recycler,
             Bar::class.java
         )
+        val btnFavoriteBeers = requireView().findViewById<Button>(R.id.favorite_beers_btn)
+        btnFavoriteBeers.setOnClickListener {
+            val useCase = bundleOf(
+                BeerListFragment.BEER_LIST_USE_CASE to BeerListFragment.FAVORITE_BEER_USE_CASE )
+            view.findNavController()
+                .navigate(R.id.action_home_to_beer_list, useCase)
+        }
+
+        val btnPopularBeers = requireView().findViewById<Button>(R.id.popular_beers_btn)
+        btnPopularBeers.setOnClickListener {
+            view.findNavController()
+                .navigate(R.id.action_home_to_beer_list)
+        }
+        val btnPopularBar = requireView().findViewById<Button>(R.id.popular_bar_btn)
+        btnPopularBar.setOnClickListener {
+            view.findNavController()
+                .navigate(R.id.action_home_to_map)
+        }
 
     }
 

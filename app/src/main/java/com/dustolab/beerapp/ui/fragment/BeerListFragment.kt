@@ -19,7 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.logic.usecase.AllBeerUseCase
 import com.dustolab.beerapp.logic.usecase.AllStyleUseCase
+import com.dustolab.beerapp.logic.usecase.FavoriteBeerUseCase
 import com.dustolab.beerapp.logic.usecase.FilterBeerUseCase
+import com.dustolab.beerapp.logic.usecase.UseCase
 import com.dustolab.beerapp.model.Beer
 import com.dustolab.beerapp.model.Style
 import com.dustolab.beerapp.ui.adapter.CardBeerAdapter
@@ -39,20 +41,24 @@ class BeerListFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setWidget()
+        val typeUseCase = arguments?.getInt(BEER_LIST_USE_CASE)
+        setWidget(typeUseCase)
         setFilterView()
-        setRecyclerView()
+        setRecyclerView(typeUseCase)
         setSpinnerView()
         setButtonReset()
         setButtonFilter()
         setButtonSearch()
     }
 
-    private fun setWidget(){
+    private fun setWidget(typeUseCase: Int?){
         spinnerStyle = requireView().findViewById(R.id.spinner_filter_style)
         sliderAlcoholContent = requireView().findViewById(R.id.rs_alcohol_content)
         sliderRating = requireView().findViewById(R.id.rs_rating)
         checkBoxFavorite = requireView().findViewById(R.id.cb_filter_favorite)
+        if(typeUseCase == FAVORITE_BEER_USE_CASE){
+            checkBoxFavorite.isChecked=true
+        }
     }
     private fun setFilterView(){
         val filterButton = requireView().findViewById<ImageButton>(R.id.btn_filter_show)
@@ -65,13 +71,18 @@ class BeerListFragment(
             }
         }
     }
-    private fun setRecyclerView(){
+    private fun setRecyclerView(typeUseCase: Int?){
         //creo il recycler view
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.all_beer_recycler)
         recyclerView.layoutManager= LinearLayoutManager(context)
         cardBeerAdapter = CardBeerAdapter(requireContext(), beerList)
-        val allBeerUseCase = AllBeerUseCase()
-        allBeerUseCase.useCase()
+        var useCase : UseCase? = null
+        if(typeUseCase== FAVORITE_BEER_USE_CASE) {
+            useCase = FavoriteBeerUseCase()
+        }else{
+            useCase = AllBeerUseCase()
+        }
+        useCase.useCase()
             .addOnSuccessListener {documents->
                 documents.forEach{doc->
                     val elem = doc.toObject(Beer::class.java)
@@ -188,5 +199,11 @@ class BeerListFragment(
         }
     }
 
+
+    companion object{
+        const val ALL_BEER_USE_CASE : Int = 0
+        const val FAVORITE_BEER_USE_CASE: Int =1
+        const val BEER_LIST_USE_CASE : String = "beerListUseCase"
+    }
 
 }

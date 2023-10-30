@@ -8,7 +8,8 @@ data class Bar(
     var drink: List<MenuEntry>? = null,
     var food: List<MenuEntry>? = null,
     var rating: Float? = null,
-    var favoriteBy: List<String>? = null
+    var favoriteBy: List<String>? = null,
+    var address: Address? = null
 ): Record(){
 
 

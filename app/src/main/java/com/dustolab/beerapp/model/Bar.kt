@@ -8,7 +8,7 @@ data class Bar(
     var drink: List<MenuEntry>? = null,
     var food: List<MenuEntry>? = null,
     var description: String? = null,
-    var timeTables: List<Int>? = null,
+    var timeTables: List<String>? = null,
     var rating: Float? = null,
     var favoriteBy: List<String>? = null,
     var address: Address? = null

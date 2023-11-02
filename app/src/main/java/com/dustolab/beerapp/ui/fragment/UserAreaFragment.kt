@@ -1,13 +1,20 @@
 package com.dustolab.beerapp.ui.fragment
 
 import android.app.UiModeManager
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.dustolab.beerapp.R
+import com.dustolab.beerapp.ui.auth.LoginActivity
+import com.dustolab.beerapp.ui.auth.SignupActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class UserAreaFragment: Fragment(R.layout.fragment_user_area) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,6 +39,16 @@ class UserAreaFragment: Fragment(R.layout.fragment_user_area) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+        val btnLogout = requireView().findViewById<Button>(R.id.btn_logout)
+        btnLogout.setOnClickListener {
+            logout()
+        }
+
+    }
+
+    private fun logout(){
+        FirebaseAuth.getInstance().signOut()
+        startActivity(Intent(context,LoginActivity::class.java))
     }
 
 }

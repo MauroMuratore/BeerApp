@@ -4,10 +4,14 @@ import android.accounts.AccountManager
 import android.app.UiModeManager
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.dustolab.beerapp.ui.fragment.BeerListFragment
 import com.dustolab.beerapp.ui.fragment.HomeFragment
 import com.dustolab.beerapp.ui.fragment.MapFragment
@@ -18,35 +22,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity:  AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if ( savedInstanceState == null)
-            supportFragmentManager.commit {
-                setReorderingAllowed(true)
-                add<HomeFragment>(R.id.fragment_container)
-            }
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_bar)
-        bottomNavigationView.selectedItemId = R.id.home
-        bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
-                R.id.social -> setOnItemSelected(SocialFragment())
-                R.id.maps -> setOnItemSelected(MapFragment())
-                R.id.home -> setOnItemSelected(HomeFragment())
-                R.id.beers -> setOnItemSelected(BeerListFragment())
-                R.id.user_area -> setOnItemSelected(UserAreaFragment())
-                else -> true
-            }
-        }
+
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragment_container) as NavHostFragment
+        val navController = navHostFragment.navController
+        findViewById<BottomNavigationView>(R.id.bottom_navigation_bar)
+            .setupWithNavController(navController)
 
     }
-
-    private fun setOnItemSelected(f: Fragment): Boolean{
-        supportFragmentManager.commit {
-            setReorderingAllowed(true)
-            replace(R.id.fragment_container, f)
-        }
-        return true
-    }
-
-
 
 }

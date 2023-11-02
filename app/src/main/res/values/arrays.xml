@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="slider_alcohol_content_values">
+        <item>0</item>
+        <item>15</item>
+    </array>
+    <array name="slider_rating_values">
+        <item>0</item>
+        <item>5</item>
+    </array>
+
+</resources>

@@ -47,7 +47,7 @@ class CardBarAdapter(
             }
 
         holder.barTitle.text = bar.name
-        holder.barAddress.text = "address"
+        holder.barAddress.text = bar.address!!.street
         holder.barRating.rating = bar.rating!!
     }
 

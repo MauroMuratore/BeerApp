@@ -4,15 +4,26 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
+import com.dustolab.beerapp.logic.usecase.BarReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.BarUseCase
+import com.dustolab.beerapp.logic.usecase.BeerReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.BeerUseCase
 import com.dustolab.beerapp.model.Bar
+import com.dustolab.beerapp.model.BarReview
+import com.dustolab.beerapp.model.BeerReview
+import com.dustolab.beerapp.model.Review
+import com.dustolab.beerapp.ui.adapter.CardReviewAdapter
 
 
 class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
@@ -24,6 +35,8 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
     private lateinit var barTimetables: TextView
     private lateinit var barAddress: TextView
     private lateinit var bar: Bar
+    private lateinit var btnMakeReview: Button
+    private lateinit var cardReviewAdapter : CardReviewAdapter
     private val imageRepository : ImageRepository = ImageRepository()
 
 
@@ -37,12 +50,25 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
         barDescription = view.findViewById(R.id.bar_description)
         barTimetables = view.findViewById(R.id.bar_timetables)
         barAddress = view.findViewById(R.id.bar_address)
+        btnMakeReview = view.findViewById(R.id.btn_make_review)
         setBarInfo(uid)
-        //setRecyclerView()
     }
 
     private fun setRecyclerView() {
-        TODO("Not yet implemented")
+        //creo il recycler view
+        val reviewList = ArrayList<Review>()
+        val recyclerView = requireView().findViewById<RecyclerView>(R.id.reviews)
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        BarReviewsUseCase(limit = 2, uid = bar.uid).useCase()
+            .addOnSuccessListener { documents ->
+                documents.forEach { doc ->
+                    val elem = doc.toObject(BarReview::class.java)
+                    reviewList.add(elem)
+                }
+                cardReviewAdapter = CardReviewAdapter(requireContext(), reviewList)
+                cardReviewAdapter.notifyDataSetChanged()
+                recyclerView.adapter = cardReviewAdapter
+            }
     }
 
     private fun setBarInfo(uid: String?) {
@@ -62,6 +88,12 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
                     barTimetables.text = bar.timeTables.toString()
                     barRatingBar.rating = bar.rating!!
                     barAddress.text = bar.address?.street
+                    setRecyclerView()
+                    btnMakeReview.setOnClickListener {
+                        var useCase = bundleOf("uid" to bar.uid, "type" to 0)
+                        view?.findNavController()
+                            ?.navigate(R.id.from_bar_to_make_a_review, useCase)
+                    }
                 }
             }
     }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
@@ -7,166 +7,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.fragment.BarActivity">
 
-
-    <ImageView
-        android:id="@+id/bar_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@color/black"/>
-
-    <Button
-        android:id="@+id/btn_favorite"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/baseline_star_border_24"/>
-
-    <Button
-        android:id="@+id/btn_make_review"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_favorite"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/baseline_edit_24"
-        android:layout_marginTop="10dp"/>
-
-    <LinearLayout
-        android:id="@+id/linear1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bar_image"
-        app:layout_constraintLeft_toLeftOf="parent">
-
-        <TextView
-            android:id="@+id/bar_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bar name"
-            android:textStyle="bold"
-            android:textSize="24sp"
-            android:layout_gravity="center"/>
-
-        <RatingBar
-            android:id="@+id/rating_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="?android:attr/ratingBarStyleSmall"
-            android:numStars="5"
-            android:rating="0"
-            android:stepSize="0.5"
-            android:layout_gravity="center"
-            android:layout_marginLeft="25dp"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_address"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/linear1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/bar_address"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="indirizo"
-            android:layout_gravity="center"/>
-
-        <Button
-            android:id="@+id/btn_map_shortcut"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:background="@drawable/baseline_map_24"
-            android:layout_marginLeft="10dp"
-            />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="descrizione"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_address" />
-
-    <TextView
-        android:id="@+id/bar_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text1"
-        android:background="@drawable/rounded_style"
-        android:backgroundTint="?attr/cardBackgroundColor"
-        android:padding="5dp"/>
-
-    <TextView
-        android:id="@+id/bar_timetables"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bar_description"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="orari"
-        android:layout_marginTop="10dp"/>
-
-    <Button
-        android:id="@+id/btn_bar_beer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/bar_timetables"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="birre"
-        android:layout_marginTop="10dp"/>
-
-
-    <Button
-        android:id="@+id/btn_bar_food"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="menu"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_bar_beer" />
-
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/btn_bar_food"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="recensioni"
-        android:layout_marginTop="25dp"/>
-
-    <LinearLayout
-        android:id="@+id/linear2"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/text2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reviews"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="482dp"
-            />
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_more_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="mostra altre"
-            android:layout_marginTop="10dp"/>
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/bar_image"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@color/black"/>
+
+            <Button
+                android:id="@+id/btn_favorite"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/baseline_star_border_24"/>
+
+            <Button
+                android:id="@+id/btn_make_review"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_favorite"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/baseline_edit_24"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/linear1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/bar_image"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <TextView
+                    android:id="@+id/bar_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bar name"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_gravity="center"/>
+
+                <RatingBar
+                    android:id="@+id/rating_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:numStars="5"
+                    android:rating="0"
+                    android:stepSize="0.5"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="25dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/linear1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/bar_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="indirizo"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_map_shortcut"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/baseline_map_24"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="descrizione"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ll_address" />
+
+            <TextView
+                android:id="@+id/bar_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text1"
+                android:background="@drawable/rounded_style"
+                android:backgroundTint="?attr/cardBackgroundColor"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/bar_timetables"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/bar_description"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="orari"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/btn_bar_beer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/bar_timetables"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="birre"
+                android:layout_marginTop="10dp"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btn_bar_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="menu"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_bar_beer" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/btn_bar_food"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="recensioni"
+                android:layout_marginTop="25dp"/>
+
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/reviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="482dp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_more_review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="mostra altre"
+                    android:layout_marginTop="10dp"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+</LinearLayout>

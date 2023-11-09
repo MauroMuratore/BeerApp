@@ -6,7 +6,7 @@ import com.dustolab.beerapp.R
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dustolab.beerapp.logic.usecase.AllBarReviewsUseCase
+import com.dustolab.beerapp.logic.usecase.BarReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.BeerReviewsUseCase
 import com.dustolab.beerapp.model.BarReview
 import com.dustolab.beerapp.model.BeerReview
@@ -22,9 +22,9 @@ class SocialFragment : Fragment(R.layout.fragment_social){
         val reviewList = ArrayList<Review>()
         val postAdapter = PostAdapter(requireContext(), reviewList)
         recyclerView.adapter = postAdapter
-        val allBarReviewsUseCase = AllBarReviewsUseCase()
+        val barReviewsUseCase = BarReviewsUseCase()
         val allBeerReviewsUseCase = BeerReviewsUseCase()
-        allBarReviewsUseCase.useCase()
+        barReviewsUseCase.useCase()
             .addOnSuccessListener { documents ->
                 documents.forEach { doc ->
                     val elem = doc.toObject(BarReview::class.java)

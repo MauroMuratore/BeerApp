@@ -4,9 +4,12 @@ import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
@@ -27,6 +30,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
     private lateinit var beerGrad: TextView
     private lateinit var beer: Beer
     private lateinit var cardReviewAdapter : CardReviewAdapter
+    private lateinit var btnMakeReview: Button
     private val imageRepository : ImageRepository = ImageRepository()
 
 
@@ -39,6 +43,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
         beerRatingBar = view.findViewById(R.id.rating_bar)
         beerDescription = view.findViewById(R.id.beer_description)
         beerGrad = view.findViewById(R.id.alcohol_grad)
+        btnMakeReview = view.findViewById(R.id.btn_make_review)
         setBeerInfo(uid)
     }
 
@@ -76,6 +81,11 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
                     beerGrad.text = beer.alcoholContent.toString()
                     beerRatingBar.rating = beer.rating!!
                     setRecyclerView()
+                    btnMakeReview.setOnClickListener {
+                        var useCase = bundleOf("uid" to beer.uid, "type" to 1)
+                        view?.findNavController()
+                            ?.navigate(R.id.from_beer_to_make_a_review, useCase)
+                    }
                 }
             }
     }

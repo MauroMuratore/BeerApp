@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.usecase.AllBarReviewsUseCase
-import com.dustolab.beerapp.logic.usecase.AllBeerReviewsUseCase
+import com.dustolab.beerapp.logic.usecase.BeerReviewsUseCase
 import com.dustolab.beerapp.model.BarReview
 import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review
@@ -24,7 +24,7 @@ class SocialActivity : ComponentActivity(){
         val postAdapter = PostAdapter(this, reviewList)
         recyclerView.adapter = postAdapter
         val allBarReviewsUseCase = AllBarReviewsUseCase()
-        val allBeerReviewsUseCase = AllBeerReviewsUseCase()
+        val allBeerReviewsUseCase = BeerReviewsUseCase()
         allBarReviewsUseCase.useCase()
             .addOnSuccessListener { documents ->
                 documents.forEach { doc ->

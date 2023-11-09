@@ -26,6 +26,20 @@
             app:popUpToInclusive="true"
             >
         </action>
+        <action
+            android:id="@+id/action_home_to_beer"
+            app:destination="@id/fragment_beer_activity"
+            app:popUpTo="@id/fragment_home"
+            app:popUpToInclusive="true">
+
+        </action>
+        <action
+            android:id="@+id/action_home_to_bar"
+            app:destination="@id/fragment_bar_activity"
+            app:popUpTo="@id/fragment_home"
+            app:popUpToInclusive="true">
+
+        </action>
     </fragment>
 
     <action
@@ -52,6 +66,12 @@
         tool:layout="@layout/fragment_map"
 
         >
+        <action
+            android:id="@+id/from_bar_list_to_bar"
+            app:destination="@+id/fragment_bar_activity"
+            app:popUpTo="@id/fragment_bar_activity"
+            app:popUpToInclusive="true"
+            />
     </fragment>
 
     <action
@@ -73,12 +93,47 @@
 
         </argument>
 
+        <action
+            android:id="@+id/from_beer_list_to_beer"
+            app:destination="@+id/fragment_beer_activity"
+            app:popUpTo="@id/fragment_beer_activity"
+            app:popUpToInclusive="true"
+            />
+
     </fragment>
 
     <action
         android:id="@+id/action_global_beer_list"
         app:destination="@id/fragment_beer_list"
         />
+    <fragment
+        android:id="@+id/fragment_beer_activity"
+        android:name="com.dustolab.beerapp.ui.fragment.BeerActivity"
+        tool:layout="@layout/fragment_beer_activity"
+        >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="0"
+            >
+
+        </argument>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_bar_activity"
+        android:name="com.dustolab.beerapp.ui.fragment.BarActivity"
+        tool:layout="@layout/fragment_bar_activity"
+        >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="0"
+            >
+
+        </argument>
+    </fragment>
+
     <fragment
         android:id="@+id/fragment_user_area"
         android:name="com.dustolab.beerapp.ui.fragment.UserAreaFragment"

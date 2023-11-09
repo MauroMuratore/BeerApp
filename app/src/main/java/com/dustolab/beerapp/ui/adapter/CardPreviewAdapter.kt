@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
+import com.dustolab.beerapp.model.Bar
+import com.dustolab.beerapp.model.Beer
 import com.dustolab.beerapp.model.Record
 
 class CardPreviewAdapter(
@@ -42,10 +46,20 @@ class CardPreviewAdapter(
                 holder.image.setImageBitmap(bitmap)
             }
 
+        //TODO: Bug da risolvere, dopo che vai sulla pagina della birra se torni indietro l'app va in crash
         holder.text.text = record.name
+
+        if(record is Beer)
+            holder.itemView.setOnClickListener{ view ->
+                var useCase = bundleOf("uid" to record.uid)
+                view.findNavController()
+                    .navigate(R.id.action_home_to_beer, useCase)
+            }
+        if(record is Bar)
+            holder.itemView.setOnClickListener{ view ->
+                var useCase = bundleOf("uid" to record.uid)
+                view.findNavController()
+                    .navigate(R.id.action_home_to_bar, useCase)
+            }
     }
-
-
-
-
 }

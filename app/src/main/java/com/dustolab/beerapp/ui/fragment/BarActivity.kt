@@ -10,18 +10,19 @@ import android.widget.TextView
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
+import com.dustolab.beerapp.logic.usecase.BarUseCase
 import com.dustolab.beerapp.logic.usecase.BeerUseCase
 import com.dustolab.beerapp.model.Bar
 
 
 class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
 
-    // private var beerUid: String
     private lateinit var barImage: ImageView
     private lateinit var barName: TextView
     private lateinit var barRatingBar: RatingBar
     private lateinit var barDescription: TextView
     private lateinit var barTimetables: TextView
+    private lateinit var barAddress: TextView
     private lateinit var bar: Bar
     private val imageRepository : ImageRepository = ImageRepository()
 
@@ -29,14 +30,15 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var uid: String? = savedInstanceState!!.getString("uid")
+        var uid: String? = arguments?.getString("uid")
         barImage = view.findViewById(R.id.bar_image)
         barName = view.findViewById(R.id.bar_name)
         barRatingBar = view.findViewById(R.id.rating_bar)
         barDescription = view.findViewById(R.id.bar_description)
         barTimetables = view.findViewById(R.id.bar_timetables)
+        barAddress = view.findViewById(R.id.bar_address)
         setBarInfo(uid)
-        setRecyclerView()
+        //setRecyclerView()
     }
 
     private fun setRecyclerView() {
@@ -45,27 +47,22 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
 
     private fun setBarInfo(uid: String?) {
 
-        bar = getBar(uid)
-
-        imageRepository.loadImage(bar.uid!!)
-            .addOnSuccessListener { imageByte->
-                val bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)
-                barImage.setImageBitmap(bitmap)
-            }
-        barName.text = bar.name
-        //barDescription.text = bar.description
-        //barTimetables.text = bar.timetables as String
-        barRatingBar.rating = bar.rating!!
-    }
-
-    private fun getBar(uid: String?): Bar {
-        val beerUseCase = BeerUseCase(uid!!)
-        beerUseCase.useCase()
+        val barUseCase = BarUseCase(uid!!)
+        barUseCase.useCase()
             .addOnSuccessListener { documents->
                 documents.forEach { doc->
                     bar =  doc.toObject(Bar::class.java)
+                    imageRepository.loadImage(bar.uid!!)
+                        .addOnSuccessListener { imageByte->
+                            val bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)
+                            barImage.setImageBitmap(bitmap)
+                        }
+                    barName.text = bar.name
+                    barDescription.text = bar.description
+                    barTimetables.text = bar.timeTables.toString()
+                    barRatingBar.rating = bar.rating!!
+                    barAddress.text = bar.address?.street
                 }
             }
-        return bar
     }
 }

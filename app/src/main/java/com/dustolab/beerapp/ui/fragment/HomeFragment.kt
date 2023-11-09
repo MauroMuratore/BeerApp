@@ -42,7 +42,7 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
             val useCase = bundleOf(
                 BeerListFragment.BEER_LIST_USE_CASE to BeerListFragment.FAVORITE_BEER_USE_CASE )
             view.findNavController()
-                .navigate(R.id.action_home_to_beer_list, useCase)
+                    .navigate(R.id.action_home_to_beer_list, useCase)
         }
 
         val btnPopularBeers = requireView().findViewById<Button>(R.id.popular_beers_btn)

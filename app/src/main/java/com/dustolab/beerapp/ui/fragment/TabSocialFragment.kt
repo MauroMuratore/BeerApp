@@ -1,6 +1,7 @@
 package com.dustolab.beerapp.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +24,7 @@ import com.dustolab.beerapp.ui.adapter.PostAdapter
 
 class TabSocialFragment() : Fragment() {
 
-    private lateinit var reviewList: ArrayList<Review>
+    private var reviewList: ArrayList<Review> = ArrayList<Review>()
     private lateinit var postAdapter: PostAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +38,6 @@ class TabSocialFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        reviewList = ArrayList<Review>()
         postAdapter = PostAdapter(requireContext(), reviewList)
         recyclerView.adapter = postAdapter
         if(arguments?.getInt(TYPE_TAB)== ALL_REVIEW){
@@ -46,12 +46,19 @@ class TabSocialFragment() : Fragment() {
         }
         else if(arguments?.getInt(TYPE_TAB)== FOLLOW_REVIEW){
             val listFollower = arguments?.getStringArrayList(ARRAYLIST_FOLLOWER)
-            setUseCase(FollowingBarReviewsUseCase(listFollower!!), BarReview::class.java)
-            setUseCase(FollowingBeerReviewsUseCase(listFollower!!), BeerReview::class.java)
+            Log.d("BEER_", "${listFollower}")
+            if(!listFollower.isNullOrEmpty()) {
+                setUseCase(FollowingBarReviewsUseCase(listFollower!!), BarReview::class.java)
+                setUseCase(FollowingBeerReviewsUseCase(listFollower!!), BeerReview::class.java)
+            }
             val listFavoriteBar = arguments?.getStringArrayList(ARRAYLIST_FAVORITE_BAR)
-            setUseCase(FavoriteBarReviewsUseCase(listFavoriteBar!!), BarReview::class.java)
+            if(!listFavoriteBar.isNullOrEmpty()) {
+                setUseCase(FavoriteBarReviewsUseCase(listFavoriteBar!!), BarReview::class.java)
+            }
             val listFavoriteBeer = arguments?.getStringArrayList(ARRAYLIST_FAVORITE_BEER)
-            setUseCase(FavoriteBeerReviewsUseCase(listFavoriteBeer!!), BeerReview::class.java)
+            if(!listFavoriteBeer.isNullOrEmpty()){
+                setUseCase(FavoriteBeerReviewsUseCase(listFavoriteBeer!!), BeerReview::class.java)
+            }
         }
 
     }

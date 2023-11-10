@@ -30,14 +30,14 @@
             android:id="@+id/action_home_to_beer"
             app:destination="@id/fragment_beer_activity"
             app:popUpTo="@id/fragment_home"
-            app:popUpToInclusive="true">
+            app:popUpToInclusive="false">
 
         </action>
         <action
             android:id="@+id/action_home_to_bar"
             app:destination="@id/fragment_bar_activity"
             app:popUpTo="@id/fragment_home"
-            app:popUpToInclusive="true">
+            app:popUpToInclusive="false">
 
         </action>
     </fragment>
@@ -70,7 +70,7 @@
             android:id="@+id/from_bar_list_to_bar"
             app:destination="@+id/fragment_bar_activity"
             app:popUpTo="@id/fragment_bar_activity"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="false"
             />
     </fragment>
 
@@ -97,7 +97,7 @@
             android:id="@+id/from_beer_list_to_beer"
             app:destination="@+id/fragment_beer_activity"
             app:popUpTo="@id/fragment_beer_activity"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="false"
             />
 
     </fragment>
@@ -123,7 +123,7 @@
             android:id="@+id/from_beer_to_make_a_review"
             app:destination="@+id/fragment_make_review"
             app:popUpTo="@id/fragment_beer_activity"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="false"
             />
     </fragment>
 
@@ -144,7 +144,7 @@
             android:id="@+id/from_bar_to_make_a_review"
             app:destination="@+id/fragment_make_review"
             app:popUpTo="@id/fragment_beer_activity"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="false"
             />
     </fragment>
 
@@ -163,13 +163,13 @@
             android:id="@+id/review_beer_done"
             app:destination="@+id/fragment_beer_activity"
             app:popUpTo="@id/fragment_make_review"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="false"
             />
         <action
             android:id="@+id/review_bar_done"
             app:destination="@+id/fragment_bar_activity"
             app:popUpTo="@id/fragment_make_review"
-            app:popUpToInclusive="true"
+            app:popUpToInclusive="false"
             />
     </fragment>
 

@@ -19,6 +19,7 @@ import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
 import com.dustolab.beerapp.logic.usecase.BarUseCase
 import com.dustolab.beerapp.logic.usecase.BeerUseCase
+import com.dustolab.beerapp.logic.usecase.NewBarReviewUseCase
 import com.dustolab.beerapp.logic.usecase.NewBeerReviewUseCase
 import com.dustolab.beerapp.logic.usecase.UseCase
 import com.dustolab.beerapp.model.Bar
@@ -113,7 +114,7 @@ class MakeReview : Fragment(R.layout.fragment_make_review) {
                 rating = itemRating.rating,
                 username = user!!.uid,
                 bar = item.uid)
-            var useCase: NewBeerReviewUseCase = NewBeerReviewUseCase(review)
+            var useCase: NewBarReviewUseCase = NewBarReviewUseCase(review)
             useCase.useCase()
             Toast.makeText(context, "Review scritta", Toast.LENGTH_LONG).show()
             var bundle = bundleOf("uid" to item.uid)

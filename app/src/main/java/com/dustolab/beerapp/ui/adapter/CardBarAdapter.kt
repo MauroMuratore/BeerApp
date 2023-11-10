@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
@@ -49,6 +51,12 @@ class CardBarAdapter(
         holder.barTitle.text = bar.name
         holder.barAddress.text = bar.address!!.street
         holder.barRating.rating = bar.rating!!
+
+        holder.itemView.setOnClickListener{ view ->
+            var useCase = bundleOf("uid" to bar.uid)
+            view.findNavController()
+                .navigate(R.id.from_bar_list_to_bar, useCase)
+        }
     }
 
 

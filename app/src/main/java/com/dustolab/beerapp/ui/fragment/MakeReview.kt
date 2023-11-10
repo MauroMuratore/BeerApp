@@ -1,60 +1,126 @@
 package com.dustolab.beerapp.ui.fragment
 
+import android.graphics.BitmapFactory
+import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
+import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import com.dustolab.beerapp.R
+import com.dustolab.beerapp.logic.repository.ImageRepository
+import com.dustolab.beerapp.logic.usecase.BarUseCase
+import com.dustolab.beerapp.logic.usecase.BeerUseCase
+import com.dustolab.beerapp.logic.usecase.NewBarReviewUseCase
+import com.dustolab.beerapp.logic.usecase.NewBeerReviewUseCase
+import com.dustolab.beerapp.logic.usecase.UseCase
+import com.dustolab.beerapp.model.Bar
+import com.dustolab.beerapp.model.BarReview
+import com.dustolab.beerapp.model.Beer
+import com.dustolab.beerapp.model.BeerReview
+import com.dustolab.beerapp.model.Record
+import com.dustolab.beerapp.model.Review
+import com.google.firebase.auth.FirebaseAuth
+import org.w3c.dom.Document
+import java.util.Objects
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MakeReview.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MakeReview : Fragment() {
+class MakeReview : Fragment(R.layout.fragment_make_review) {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var itemImage: ImageView
+    private lateinit var itemName: TextView
+    private lateinit var itemReview: EditText
+    private lateinit var itemRating: RatingBar
+    private lateinit var btnSubmit : Button
+    private val imageRepository : ImageRepository = ImageRepository()
+    private val user = FirebaseAuth.getInstance().currentUser
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        var uid: String? = arguments?.getString("uid")
+        var type: Int? = arguments?.getInt("type")
+        itemImage = view.findViewById(R.id.item_image)
+        itemName = view.findViewById(R.id.item_name)
+        itemReview = view.findViewById(R.id.ET_review)
+        itemRating = view.findViewById(R.id.rating_bar)
+        btnSubmit = view.findViewById(R.id.btn_submit)
+        setItemInfo(uid, type)
+    }
+
+    private fun setItemInfo(uid: String?, type: Int?){
+        var useCase: UseCase
+        var item: Record
+        if (type == 1){
+            useCase = BeerUseCase(uid!!)
+            useCase.useCase()
+                .addOnSuccessListener { documents ->
+                    documents.forEach{ doc ->
+                        item = doc.toObject(Beer::class.java)
+                        imageRepository.loadImage(item.uid!!)
+                            .addOnSuccessListener { imageByte->
+                                val bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)
+                                itemImage.setImageBitmap(bitmap)
+                            }
+                        itemName.text = item.name
+                        btnSubmit.setOnClickListener {
+                            submitReview(item)
+                        }
+                    }
+                }
+        }
+        else{
+            useCase = BarUseCase(uid!!)
+            useCase.useCase()
+                .addOnSuccessListener { documents ->
+                    documents.forEach{ doc ->
+                        item = doc.toObject(Bar::class.java)
+                        imageRepository.loadImage(item.uid!!)
+                            .addOnSuccessListener { imageByte->
+                                val bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)
+                                itemImage.setImageBitmap(bitmap)
+                            }
+                        itemName.text = item.name
+                        btnSubmit.setOnClickListener {
+                            submitReview(item)
+                        }
+                    }
+                }
         }
     }
+    private fun submitReview(item: Record){
+        if (item is Beer){
+            var review: BeerReview = BeerReview(
+                review = itemReview.text.toString(),
+                rating = itemRating.rating,
+                username = user!!.uid,
+                beer = item.uid)
+            var useCase: NewBeerReviewUseCase = NewBeerReviewUseCase(review)
+            useCase.useCase()
+            Toast.makeText(context, "Review scritta", Toast.LENGTH_LONG).show()
+            var bundle = bundleOf("uid" to item.uid)
+            view?.findNavController()
+                ?.navigate(R.id.review_beer_done, bundle)
+        } else{
+            var review: BarReview = BarReview(
+                review = itemReview.text.toString(),
+                rating = itemRating.rating,
+                username = user!!.uid,
+                bar = item.uid)
+            var useCase: NewBarReviewUseCase = NewBarReviewUseCase(review)
+            useCase.useCase()
+            Toast.makeText(context, "Review scritta", Toast.LENGTH_LONG).show()
+            var bundle = bundleOf("uid" to item.uid)
+            view?.findNavController()
+                ?.navigate(R.id.review_bar_done, bundle)
+        }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_make_review, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MakeReview.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MakeReview().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

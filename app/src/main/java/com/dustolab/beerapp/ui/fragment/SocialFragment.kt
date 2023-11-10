@@ -9,9 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dustolab.beerapp.logic.usecase.BarReviewsUseCase
+import com.dustolab.beerapp.logic.usecase.BeerReviewsUseCase
 import androidx.viewpager2.widget.ViewPager2
-import com.dustolab.beerapp.logic.usecase.AllBarReviewsUseCase
-import com.dustolab.beerapp.logic.usecase.AllBeerReviewsUseCase
 import com.dustolab.beerapp.model.BarReview
 import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review

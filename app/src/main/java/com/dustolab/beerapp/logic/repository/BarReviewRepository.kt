@@ -11,7 +11,18 @@ class BarReviewRepository(
     private val dbReference: CollectionReference = Firebase.firestore.collection(PATH)
 ) {
 
-    fun loadAllBarReview(): Task<QuerySnapshot> {
+    fun loadBarReview(uid: String, limit: Long): Task<QuerySnapshot> {
+        if(limit > 0)
+            return dbReference
+                .whereEqualTo(BarReviewRepository.BAR, uid)
+                .limit(limit)
+                .get()
+        else
+            return dbReference
+                .whereEqualTo(BarReviewRepository.BAR, uid)
+                .get()
+    }
+    fun loadAllBarReview(): Task<QuerySnapshot>{
         return dbReference.get()
     }
 

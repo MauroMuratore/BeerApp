@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
-import com.dustolab.beerapp.logic.usecase.AllBarReviewsUseCase
-import com.dustolab.beerapp.logic.usecase.AllBeerReviewsUseCase
+import com.dustolab.beerapp.logic.usecase.BarReviewsUseCase
+import com.dustolab.beerapp.logic.usecase.BeerReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.FavoriteBarReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.FavoriteBeerReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.FavoriteBeerUseCase
@@ -41,8 +41,8 @@ class TabSocialFragment() : Fragment() {
         postAdapter = PostAdapter(requireContext(), reviewList)
         recyclerView.adapter = postAdapter
         if(arguments?.getInt(TYPE_TAB)== ALL_REVIEW){
-            setUseCase(AllBarReviewsUseCase(), BarReview::class.java)
-            setUseCase(AllBeerReviewsUseCase(), BeerReview::class.java)
+            setUseCase(BarReviewsUseCase(), BarReview::class.java)
+            setUseCase(BeerReviewsUseCase(), BeerReview::class.java)
         }
         else if(arguments?.getInt(TYPE_TAB)== FOLLOW_REVIEW){
             val listFollower = arguments?.getStringArrayList(ARRAYLIST_FOLLOWER)

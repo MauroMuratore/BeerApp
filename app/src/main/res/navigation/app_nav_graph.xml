@@ -26,23 +26,45 @@
             app:popUpToInclusive="true"
             >
         </action>
+        <action
+            android:id="@+id/action_home_to_beer"
+            app:destination="@id/fragment_beer_activity"
+            app:popUpTo="@id/fragment_home"
+            app:popUpToInclusive="true"
+            >
+
+        </action>
+        <action
+            android:id="@+id/action_home_to_bar"
+            app:destination="@id/fragment_bar_activity"
+            app:popUpTo="@id/fragment_home"
+            app:popUpToInclusive="true"
+            >
+
+        </action>
     </fragment>
 
     <action
         android:id="@+id/action_global_home"
         app:destination="@id/fragment_home"
+        app:popUpTo="@id/fragment_home"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
         />
 
     <fragment
         android:id="@+id/fragment_social"
         android:name="com.dustolab.beerapp.ui.fragment.SocialFragment"
         android:label="Social"
-        tool:layout="@layout/fragment_user_area"
+        tool:layout="@layout/fragment_social"
         >
     </fragment>
     <action
         android:id="@+id/action_global_social"
         app:destination="@id/fragment_social"
+        app:popUpTo="@id/fragment_social"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
         />
 
     <fragment
@@ -52,11 +74,20 @@
         tool:layout="@layout/fragment_map"
 
         >
+        <action
+            android:id="@+id/from_bar_list_to_bar"
+            app:destination="@+id/fragment_bar_activity"
+            app:popUpTo="@id/fragment_map"
+            app:popUpToInclusive="true"
+            />
     </fragment>
 
     <action
         android:id="@+id/action_gloabl_map"
         app:destination="@id/fragment_map"
+        app:popUpTo="@id/fragment_map"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
         />
 
     <fragment
@@ -73,12 +104,82 @@
 
         </argument>
 
+        <action
+            android:id="@+id/from_beer_list_to_beer"
+            app:destination="@+id/fragment_beer_activity"
+            app:popUpTo="@id/fragment_beer_activity"
+            app:popUpToInclusive="true"
+            />
+
     </fragment>
 
     <action
         android:id="@+id/action_global_beer_list"
         app:destination="@id/fragment_beer_list"
+        app:popUpTo="@id/fragment_beer_list"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
         />
+    <fragment
+        android:id="@+id/fragment_beer_activity"
+        android:name="com.dustolab.beerapp.ui.fragment.BeerActivity"
+        tool:layout="@layout/fragment_beer_activity"
+        >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="0"
+            >
+
+        </argument>
+
+        <action
+            android:id="@+id/from_beer_to_make_a_review"
+            app:destination="@+id/fragment_make_review"
+
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_bar_activity"
+        android:name="com.dustolab.beerapp.ui.fragment.BarActivity"
+        tool:layout="@layout/fragment_bar_activity"
+        >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="0"
+            >
+
+        </argument>
+
+        <action
+            android:id="@+id/from_bar_to_make_a_review"
+            app:destination="@+id/fragment_make_review"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_make_review"
+        android:name="com.dustolab.beerapp.ui.fragment.MakeReview"
+        tool:layout="@layout/fragment_make_review"
+        >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="0"
+            >
+        </argument>
+        <action
+            android:id="@+id/review_beer_done"
+            app:destination="@+id/fragment_beer_activity"
+            />
+        <action
+            android:id="@+id/review_bar_done"
+            app:destination="@+id/fragment_bar_activity"
+            />
+    </fragment>
+
     <fragment
         android:id="@+id/fragment_user_area"
         android:name="com.dustolab.beerapp.ui.fragment.UserAreaFragment"
@@ -90,6 +191,9 @@
     <action
         android:id="@+id/action_gloabl_user_area"
         app:destination="@id/fragment_user_area"
+        app:popUpTo="@id/fragment_user_area"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
         />
 
 

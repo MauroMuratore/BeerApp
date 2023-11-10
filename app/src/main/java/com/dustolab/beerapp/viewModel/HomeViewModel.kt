@@ -29,7 +29,6 @@ class HomeViewModel(
             _uiState.update {currentState ->
                 currentState.copy(
                 )
-
             }
         }
     }

@@ -2,6 +2,7 @@ package com.dustolab.beerapp.ui.adapter
 
 import android.content.Context
 import android.graphics.BitmapFactory
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
@@ -17,8 +20,10 @@ import com.dustolab.beerapp.model.Beer
 class CardBeerAdapter(
     val context: Context,
     val beerList: List<Beer>,
-    private val imageRepository: ImageRepository = ImageRepository()
+    private val imageRepository: ImageRepository = ImageRepository(),
+    var onItemClick: ((Beer) -> Unit)? = null
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
 
     class CardBeerHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val beerImage = itemView.findViewById<ImageView>(R.id.beer_image)
@@ -53,6 +58,12 @@ class CardBeerAdapter(
         Log.d("BEER_CARD_ADAPTER", "${beer}")
         holder.beerStyle.text = beer.style
         holder.beerRating.rating = beer.rating!!
+
+        holder.itemView.setOnClickListener{ view ->
+            var useCase = bundleOf("uid" to beer.uid)
+            view.findNavController()
+                .navigate(R.id.from_beer_list_to_beer, useCase)
+        }
 
     }
 }

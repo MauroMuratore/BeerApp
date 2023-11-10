@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import com.dustolab.beerapp.MainActivity
 import com.dustolab.beerapp.R
+import com.dustolab.beerapp.logic.repository.UserRepository
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 

@@ -40,6 +40,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
     private lateinit var btnFavorite: ImageButton
     private var favoriteStatus: Boolean = false
     private lateinit var btnMoreReview: Button
+    private lateinit var btnBarBeers: Button
     private val imageRepository : ImageRepository = ImageRepository()
     private val user = FirebaseAuth.getInstance().currentUser
 
@@ -58,6 +59,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
         btnMakeReview = view.findViewById(R.id.btn_make_review)
         btnFavorite = view.findViewById<ImageButton>(R.id.btn_favorite)
         btnMoreReview = view.findViewById(R.id.btn_more_review)
+        btnBarBeers = view.findViewById(R.id.btn_bar_beer)
         setBarInfo(uid)
     }
 
@@ -92,7 +94,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
                         }
                     barName.text = bar.name
                     barDescription.text = bar.description
-                    barTimetables.text = bar.timeTables.toString()
+                    barTimetables.text = bar.toStringTimeTables()
                     barRatingBar.rating = bar.rating!!
                     barAddress.text = bar.address?.street
                     checkFavorite()

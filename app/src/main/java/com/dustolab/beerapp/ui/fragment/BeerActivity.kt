@@ -40,6 +40,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
     private lateinit var btnFavorite: ImageButton
     private var favoriteStatus: Boolean = false
     private val imageRepository: ImageRepository = ImageRepository()
+    private lateinit var btnMoreReview: Button
     private val user = FirebaseAuth.getInstance().currentUser
 
 
@@ -53,6 +54,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
         beerGrad = view.findViewById(R.id.alcohol_grad)
         btnMakeReview = view.findViewById(R.id.btn_make_review)
         btnFavorite = view.findViewById<ImageButton>(R.id.btn_favorite)
+        btnMoreReview = view.findViewById(R.id.btn_more_review)
         setBeerInfo(uid)
     }
 
@@ -100,6 +102,11 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
                     }
                     btnFavorite.setOnClickListener {
                         changeFavoriteStatus()
+                    }
+                    btnMoreReview.setOnClickListener {
+                        var useCase = bundleOf("uid" to beer.uid, "type" to 0)
+                        view?.findNavController()
+                            ?.navigate(R.id.from_beer_to_all_reviews, useCase)
                     }
                 }
             }

@@ -11,6 +11,7 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
@@ -38,6 +39,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
     private lateinit var cardReviewAdapter : CardReviewAdapter
     private lateinit var btnFavorite: ImageButton
     private var favoriteStatus: Boolean = false
+    private lateinit var btnMoreReview: Button
     private val imageRepository : ImageRepository = ImageRepository()
     private val user = FirebaseAuth.getInstance().currentUser
 
@@ -55,6 +57,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
         barAddress = view.findViewById(R.id.bar_address)
         btnMakeReview = view.findViewById(R.id.btn_make_review)
         btnFavorite = view.findViewById<ImageButton>(R.id.btn_favorite)
+        btnMoreReview = view.findViewById(R.id.btn_more_review)
         setBarInfo(uid)
     }
 
@@ -102,6 +105,11 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
                     }
                     btnFavorite.setOnClickListener {
                         changeFavoriteStatus()
+                    }
+                    btnMoreReview.setOnClickListener {
+                        var useCase = bundleOf("uid" to bar.uid, "type" to 1)
+                        view?.findNavController()
+                            ?.navigate(R.id.from_bar_to_all_reviews, useCase)
                     }
                 }
             }

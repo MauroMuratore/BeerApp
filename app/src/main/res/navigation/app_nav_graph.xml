@@ -125,6 +125,33 @@
             app:popUpTo="@id/fragment_beer_activity"
             app:popUpToInclusive="false"
             />
+        <action
+            android:id="@+id/from_beer_to_all_reviews"
+            app:destination="@+id/fragment_item_reviews"
+            app:popUpTo="@id/fragment_beer_activity"
+            app:popUpToInclusive="false"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_item_reviews"
+        android:name="com.dustolab.beerapp.ui.fragment.ItemReviewsFragment"
+        tool:layout="@layout/fragment_tab_social"
+        >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="0"
+            >
+
+        </argument>
+
+        <argument
+            android:name="type"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
+
     </fragment>
 
     <fragment
@@ -143,7 +170,13 @@
         <action
             android:id="@+id/from_bar_to_make_a_review"
             app:destination="@+id/fragment_make_review"
-            app:popUpTo="@id/fragment_beer_activity"
+            app:popUpTo="@id/fragment_bar_activity"
+            app:popUpToInclusive="false"
+            />
+        <action
+            android:id="@+id/from_bar_to_all_reviews"
+            app:destination="@+id/fragment_item_reviews"
+            app:popUpTo="@id/fragment_bar_activity"
             app:popUpToInclusive="false"
             />
     </fragment>

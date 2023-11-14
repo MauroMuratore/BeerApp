@@ -45,7 +45,14 @@ class CardReviewAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val review = list[position]
         holder as CardReviewHolder
-        holder.username.text = review.username
+        val userUseCase = UserUseCase(review.username!!)
+        userUseCase.useCase()
+            .addOnSuccessListener {documents->
+                documents.forEach {
+                    val user = it.toObject(User::class.java)
+                    holder.username.text=user.username
+                }
+            }
         holder.review.text = review.review
         holder.rating_bar.rating = review.rating!!
 

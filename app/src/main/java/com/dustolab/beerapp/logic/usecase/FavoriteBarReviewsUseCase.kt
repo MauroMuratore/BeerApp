@@ -5,7 +5,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.QuerySnapshot
 
-class FavoriteBarReviewsUseCase (
+class FavoriteBarReviewsUseCase(
     var listFavorite: List<String>,
     private val barReviewsRepository: BarReviewRepository = BarReviewRepository()
 ): UseCase{
@@ -15,4 +15,5 @@ class FavoriteBarReviewsUseCase (
             Filter.inArray(BarReviewRepository.BAR, listFavorite)
         )
     }
+
 }

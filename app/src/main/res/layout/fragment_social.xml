@@ -15,16 +15,9 @@
         android:textSize="24dp"
         android:textStyle="bold"/>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="?attr/android:colorBackground"
-        />
+        android:layout_height="match_parent"/>
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
 </LinearLayout>

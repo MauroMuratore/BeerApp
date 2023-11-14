@@ -5,9 +5,9 @@ import com.dustolab.beerapp.model.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
 
@@ -26,18 +26,41 @@ class UserRepository(
         )
         dbReference.document(idUser).set(userMap)
     }
-
-    suspend fun getLocalUser(): User{
+    suspend fun getLocalUser(): User {
         val userUid = Firebase.auth.uid!!
         val ritorno = dbReference.document(userUid).get().await().toObject(User::class.java)!!
         Log.d("BEER_REPO", "${ritorno}")
         return ritorno
     }
 
+    fun updateUser(){
+
+    }
+
     fun getUser(uid: String): Task<QuerySnapshot>{
         return dbReference
             .whereEqualTo(UID, uid)
             .get()
+    }
+
+    fun addFavoriteBeer(beer: String){
+        val userUid = Firebase.auth.uid!!
+        dbReference.document(userUid).update(FAV_BEER,FieldValue.arrayUnion(beer))
+    }
+
+    fun addFavoriteBar(bar: String){
+        val userUid = Firebase.auth.uid!!
+        dbReference.document(userUid).update(FAV_BAR,FieldValue.arrayUnion(bar))
+    }
+
+    fun removeFavoriteBeer(beer: String){
+        val userUid = Firebase.auth.uid!!
+        dbReference.document(userUid).update(FAV_BEER,FieldValue.arrayRemove(beer))
+    }
+
+    fun removeFavoriteBar(bar: String){
+        val userUid = Firebase.auth.uid!!
+        dbReference.document(userUid).update(FAV_BAR,FieldValue.arrayRemove(bar))
     }
 
     companion object {

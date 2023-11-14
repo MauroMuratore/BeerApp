@@ -30,12 +30,12 @@ class BeerReviewRepository(
     fun loadUserBeerReview(user : String, limit : Long = -1):Task<QuerySnapshot>{
         if(limit > 0)
             return dbReference
-                .whereEqualTo(USER, user)
+                .whereEqualTo(USERNAME, user)
                 .limit(limit)
                 .get()
         else
             return dbReference
-                .whereEqualTo(USER, user)
+                .whereEqualTo(USERNAME, user)
                 .get()
     }
     fun loadFilterBeerReview(filter: Filter): Task<QuerySnapshot>{
@@ -47,8 +47,7 @@ class BeerReviewRepository(
 
     companion object{
         const val PATH = "beer_reviews"
-        const val USER : String = "username"
-        const val USERNAME = "username"
-        const val BEER = "beer"
+        const val BEER : String = "beer"
+        const val USERNAME : String = "username"
     }
 }

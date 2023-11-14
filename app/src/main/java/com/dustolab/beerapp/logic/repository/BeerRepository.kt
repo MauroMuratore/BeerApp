@@ -2,6 +2,7 @@ package com.dustolab.beerapp.logic.repository
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
@@ -63,6 +64,14 @@ class BeerRepository(
             return dbReference
                 .orderBy(RATING, Query.Direction.DESCENDING)
                 .get()
+    }
+
+    fun addFavBy(user: String, beer: String){
+        dbReference.document(beer).update(FAVORITE_BY, FieldValue.arrayUnion(user))
+    }
+
+    fun removeFavBy(user: String, beer: String){
+        dbReference.document(beer).update(FAVORITE_BY, FieldValue.arrayRemove(user))
     }
 
     companion object{

@@ -20,7 +20,6 @@ import com.dustolab.beerapp.model.Beer
 import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review
 import com.dustolab.beerapp.model.User
-import com.google.firebase.firestore.ktx.toObject
 
 class CardReviewAdapter(
     val context: Context,
@@ -46,15 +45,7 @@ class CardReviewAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val review = list[position]
         holder as CardReviewHolder
-
-        val userUseCase = UserUseCase(review.username!!)
-        userUseCase.useCase()
-            .addOnSuccessListener { documents ->
-                documents.forEach {
-                    val user = it.toObject(User::class.java)
-                    holder.username.text = user.username
-                }
-            }
+        holder.username.text = review.username
         holder.review.text = review.review
         holder.rating_bar.rating = review.rating!!
 

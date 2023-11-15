@@ -66,6 +66,12 @@ class BeerRepository(
                 .get()
     }
 
+    fun loadSelectedBeers(uids: ArrayList<String>): Task<QuerySnapshot>{
+        return dbReference
+            .whereIn(UID, uids)
+            .get()
+    }
+
     fun addFavBy(user: String, beer: String){
         dbReference.document(beer).update(FAVORITE_BY, FieldValue.arrayUnion(user))
     }

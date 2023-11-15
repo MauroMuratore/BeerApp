@@ -113,6 +113,11 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
                         view?.findNavController()
                             ?.navigate(R.id.from_bar_to_all_reviews, useCase)
                     }
+                    btnBarBeers.setOnClickListener {
+                        var useCase = bundleOf("uid" to bar.uid, "beerListUseCase" to 2)
+                        view?.findNavController()
+                            ?.navigate(R.id.from_bar_to_bar_beers, useCase)
+                    }
                 }
             }
     }

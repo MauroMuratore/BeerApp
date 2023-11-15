@@ -24,4 +24,12 @@ data class Bar(
                 "Domenica: "+timeTables!![6]
         return out
     }
+
+    fun getBeers(): ArrayList<String>{
+        var beers = ArrayList<String>()
+        beerList!!.forEach { beer ->
+            beers.add(beer.uid!!)
+        }
+        return  beers
+    }
 }

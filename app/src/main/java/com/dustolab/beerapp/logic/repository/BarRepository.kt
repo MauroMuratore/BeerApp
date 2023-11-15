@@ -2,6 +2,7 @@ package com.dustolab.beerapp.logic.repository
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
@@ -21,7 +22,6 @@ class BarRepository(
             .whereEqualTo(UID, uid)
             .get()
     }
-
 
     fun loadPopularBar(limit : Long = -1): Task<QuerySnapshot>{
         if(limit > 0)
@@ -48,5 +48,6 @@ class BarRepository(
         const val PATH: String = "bar"
         const val RATING: String = "rating"
         const val FAVORITE_BY: String = "favoriteBy"
+        const val BEER_LIST: String = "beerList"
     }
 }

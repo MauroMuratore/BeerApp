@@ -16,6 +16,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.dustolab.beerapp.logic.repository.UserRepository
 import com.dustolab.beerapp.ui.fragment.BeerListFragment
@@ -43,9 +45,10 @@ class MainActivity(
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragment_container) as NavHostFragment
         val navController = navHostFragment.navController
-        findViewById<BottomNavigationView>(R.id.bottom_navigation_bar)
-            .setupWithNavController(navController)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation_bar)
+        NavigationUI.setupWithNavController(bottomNavigationView, navController, false)
 
     }
+
 
 }

@@ -5,14 +5,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import com.dustolab.beerapp.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.dustolab.beerapp.R
-import com.dustolab.beerapp.logic.repository.UserRepository
 import com.dustolab.beerapp.logic.usecase.auth.SignupUseCase
-import com.dustolab.beerapp.ui.HomeActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 class SignupActivity : AppCompatActivity(R.layout.activity_sign_up) {

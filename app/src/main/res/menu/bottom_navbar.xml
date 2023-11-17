@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/fragment_social"
-        android:icon="@drawable/baseline_social_24"
-        android:title="Social"
-        />
-    <item
-        android:id="@+id/fragment_map"
-        android:icon="@drawable/baseline_map_24"
-        android:title="Bar"
-        />
-    <item
-        android:id="@+id/fragment_home"
-        android:icon="@drawable/baseline_home_24"
-        android:title="Home"
-        />
-    <item
-        android:id="@+id/fragment_beer_list"
-        android:icon="@drawable/baseline_beer_24"
-        android:title="Birre"
-        />
-    <item
-        android:id="@+id/fragment_user_area"
-        android:icon="@drawable/baseline_account_circle_24"
-        android:title="Account"
-        />
+    <group android:id="@+id/navigation_bar_group">
+        <item
+            android:id="@+id/fragment_social"
+            android:icon="@drawable/baseline_social_24"
+            android:title="Social"
+            />
+        <item
+            android:id="@+id/fragment_map"
+            android:icon="@drawable/baseline_map_24"
+            android:title="Bar"
+            />
+        <item
+            android:id="@+id/fragment_home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="Home"
+            />
+        <item
+            android:id="@+id/fragment_beer_list"
+            android:icon="@drawable/baseline_beer_24"
+            android:title="Birre"
+            />
+        <item
+            android:id="@+id/fragment_user_area"
+            android:icon="@drawable/baseline_account_circle_24"
+            android:title="Account"
+            />
+    </group>
 </menu>

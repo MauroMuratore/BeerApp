@@ -61,6 +61,7 @@ class CardBeerAdapter(
 
         holder.itemView.setOnClickListener{ view ->
             var useCase = bundleOf("uid" to beer.uid)
+
             view.findNavController()
                 .navigate(R.id.from_beer_list_to_beer, useCase)
         }

@@ -20,7 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-
+            <androidx.constraintlayout.helper.widget.Layer
+                android:id="@+id/layer_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="iv_user, tv_username"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
             <ImageView
                 android:id="@+id/iv_user"
                 android:layout_width="wrap_content"
@@ -33,7 +40,7 @@
 
             <TextView
                 android:id="@+id/tv_username"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nome Utente"
                 android:padding="5dp"
@@ -42,6 +49,15 @@
                 />
 
 
+            <androidx.constraintlayout.helper.widget.Layer
+                android:id="@+id/layer_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="iv_review,tv_review_name,
+                tv_review_description"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
             <ImageView
                 android:id="@+id/iv_review"
                 android:layout_width="0dp"

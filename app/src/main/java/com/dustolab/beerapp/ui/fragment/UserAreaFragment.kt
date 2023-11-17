@@ -6,8 +6,10 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.ui.auth.LoginActivity
 import com.dustolab.beerapp.ui.auth.SignupActivity
@@ -42,6 +44,9 @@ class UserAreaFragment: Fragment(R.layout.fragment_user_area) {
         val btnLogout = requireView().findViewById<Button>(R.id.btn_logout)
         btnLogout.setOnClickListener {
             logout()
+        }
+        requireActivity().onBackPressedDispatcher.addCallback (this){
+            view.findNavController().navigate(R.id.action_global_home)
         }
 
     }

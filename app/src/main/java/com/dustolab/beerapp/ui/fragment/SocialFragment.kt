@@ -3,10 +3,12 @@ package com.dustolab.beerapp.ui.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.addCallback
 import com.dustolab.beerapp.R
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.logic.usecase.BarReviewsUseCase
@@ -43,6 +45,9 @@ class SocialFragment : Fragment(R.layout.fragment_social){
                     tab.text="Seguiti"
                 }
             }.attach()
+        }
+        requireActivity().onBackPressedDispatcher.addCallback (this){
+            view.findNavController().navigate(R.id.action_global_home)
         }
 
     }

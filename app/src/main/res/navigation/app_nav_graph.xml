@@ -6,138 +6,122 @@
     app:startDestination="@id/fragment_home"
     >
 
-    <fragment
-        android:id="@+id/fragment_home"
-        android:name="com.dustolab.beerapp.ui.fragment.HomeFragment"
-        android:label="Home"
-        tool:layout="@layout/fragment_home"
-        >
-        <action
-            android:id="@+id/action_home_to_beer_list"
-            app:destination="@id/fragment_beer_list"
-            app:popUpTo="@id/fragment_home"
-            app:popUpToInclusive="true"
-            >
-        </action>
-        <action
-            android:id="@+id/action_home_to_map"
-            app:destination="@id/fragment_map"
-            app:popUpTo="@id/fragment_home"
-            app:popUpToInclusive="true"
-            >
-        </action>
-        <action
-            android:id="@+id/action_home_to_beer"
-            app:destination="@id/fragment_beer_activity"
-            app:popUpTo="@id/fragment_home"
-            app:popUpToInclusive="true"
-            >
-
-        </action>
-        <action
-            android:id="@+id/action_home_to_bar"
-            app:destination="@id/fragment_bar_activity"
-            app:popUpTo="@id/fragment_home"
-            app:popUpToInclusive="true"
-            >
-
-        </action>
-    </fragment>
 
     <action
         android:id="@+id/action_global_home"
         app:destination="@id/fragment_home"
-
+        app:popUpTo="@+id/app_nav_graph"
+        app:popUpToInclusive="true"
         />
+    <action
+        android:id="@+id/action_global_social"
+        app:destination="@id/fragment_social"
+        app:popUpTo="@id/app_nav_graph"
+        app:popUpToInclusive="true"
+        />
+    <action
+        android:id="@+id/action_global_map"
+        app:destination="@id/fragment_map"
+        app:popUpTo="@id/app_nav_graph"
+        app:popUpToInclusive="true"
+        />
+    <action
+        android:id="@+id/action_global_beer_list"
+        app:destination="@id/fragment_beer_list"
+        app:popUpTo="@id/app_nav_graph"
+        app:popUpToInclusive="true"
+        />
+    <action
+        android:id="@+id/action_gloabl_user_area"
+        app:destination="@id/fragment_user_area"
+        app:popUpTo="@id/app_nav_graph"
+        app:popUpToInclusive="true"
+        />
+
+    <fragment
+        android:id="@+id/fragment_home"
+        android:name="com.dustolab.beerapp.ui.fragment.HomeFragment"
+        android:label="Home"
+        tool:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_beer"
+            app:destination="@id/fragment_beer_activity"
+            >
+        </action>
+        <action
+            android:id="@+id/action_home_to_bar"
+            app:destination="@id/fragment_bar_activity"
+            >
+        </action>
+   </fragment>
 
     <fragment
         android:id="@+id/fragment_social"
         android:name="com.dustolab.beerapp.ui.fragment.SocialFragment"
         android:label="Social"
-        tool:layout="@layout/fragment_social"
-        >
+        tool:layout="@layout/fragment_social">
+        <action
+            android:id="@+id/action_social_to_profile"
+            app:destination="@id/fragment_user_profile"
+            />
+        <action
+            android:id="@+id/action_user_profile_to_beer"
+            app:destination="@id/fragment_beer_activity"
+            />
+        <action
+            android:id="@+id/action_user_profile_to_bar"
+            app:destination="@id/fragment_bar_activity"
+            />
     </fragment>
-    <action
-        android:id="@+id/action_global_social"
-        app:destination="@id/fragment_social"
-        app:popUpTo="@id/fragment_social"
-        app:popUpToInclusive="true"
-        app:launchSingleTop="true"
-        />
-
     <fragment
         android:id="@+id/fragment_map"
         android:name="com.dustolab.beerapp.ui.fragment.MapFragment"
-        android:label="Bar"
-        tool:layout="@layout/fragment_map"
-
-        >
+        android:label="Map"
+        tool:layout="@layout/fragment_map">
         <action
             android:id="@+id/from_bar_list_to_bar"
-            app:destination="@+id/fragment_bar_activity"
-            app:popUpTo="@id/fragment_map"
-            app:popUpToInclusive="true"
-            />
+            app:destination="@id/fragment_bar_activity"
+            >
+        </action>
     </fragment>
-
-    <action
-        android:id="@+id/action_gloabl_map"
-        app:destination="@id/fragment_map"
-        app:popUpTo="@id/fragment_map"
-        app:popUpToInclusive="true"
-        app:launchSingleTop="true"
-        />
-
     <fragment
         android:id="@+id/fragment_beer_list"
         android:name="com.dustolab.beerapp.ui.fragment.BeerListFragment"
-        android:label="Bar"
-        tool:layout="@layout/fragment_beer_list"
-        >
-        <argument
-            android:name="beerListUseCase"
-            app:argType="integer"
-            android:defaultValue="0"
-            >
-
-        </argument>
-
+        android:label="Beer list"
+        tool:layout="@layout/fragment_beer_list">
         <action
             android:id="@+id/from_beer_list_to_beer"
             app:destination="@+id/fragment_beer_activity"
-            app:popUpTo="@id/fragment_beer_activity"
-            app:popUpToInclusive="true"
-            />
-
+            >
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_user_area"
+        android:name="com.dustolab.beerapp.ui.fragment.UserAreaFragment"
+        android:label="User Area"
+        tool:layout="@layout/fragment_user_area">
     </fragment>
 
-    <action
-        android:id="@+id/action_global_beer_list"
-        app:destination="@id/fragment_beer_list"
-        app:popUpTo="@id/fragment_beer_list"
-        app:popUpToInclusive="true"
-        app:launchSingleTop="true"
-        />
+
     <fragment
         android:id="@+id/fragment_beer_activity"
         android:name="com.dustolab.beerapp.ui.fragment.BeerActivity"
         tool:layout="@layout/fragment_beer_activity"
         >
+
         <argument
             android:name="uid"
             app:argType="string"
             android:defaultValue="0"
             >
-
         </argument>
 
         <action
             android:id="@+id/from_beer_to_make_a_review"
             app:destination="@+id/fragment_make_review"
-
             />
-    </fragment>
 
+    </fragment>
     <fragment
         android:id="@+id/fragment_bar_activity"
         android:name="com.dustolab.beerapp.ui.fragment.BarActivity"
@@ -156,7 +140,6 @@
             app:destination="@+id/fragment_make_review"
             />
     </fragment>
-
     <fragment
         android:id="@+id/fragment_make_review"
         android:name="com.dustolab.beerapp.ui.fragment.MakeReview"
@@ -179,20 +162,34 @@
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_user_area"
-        android:name="com.dustolab.beerapp.ui.fragment.UserAreaFragment"
-        android:label="Account"
-        tool:layout="@layout/fragment_user_area"
+        android:id="@+id/fragment_user_profile"
+        android:name="com.dustolab.beerapp.ui.fragment.ProfileUserFragment"
+        tool:layout="@layout/fragment_profile_user"
         >
-    </fragment>
+        <argument
+            android:name="userUid"
+            app:argType="string"
+            android:defaultValue="u-1"
+            >
+        </argument>
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="u-1"
+            >
+        </argument>
 
-    <action
-        android:id="@+id/action_gloabl_user_area"
-        app:destination="@id/fragment_user_area"
-        app:popUpTo="@id/fragment_user_area"
-        app:popUpToInclusive="true"
-        app:launchSingleTop="true"
-        />
+        <action
+            android:id="@+id/action_user_profile_to_beer"
+            app:destination="@id/fragment_beer_activity"
+            />
+        <action
+            android:id="@+id/action_user_profile_to_bar"
+            app:destination="@id/fragment_bar_activity"
+            />
+
+
+    </fragment>
 
 
 </navigation>

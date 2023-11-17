@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.activity.addCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material3.contentColorFor
@@ -16,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
@@ -60,6 +62,9 @@ class MapFragment: Fragment(R.layout.fragment_map) {
         val fabPosition = requireView().findViewById<FloatingActionButton>(R.id.fab_my_position)
         fabPosition.setOnClickListener{
             setPosition()
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            view.findNavController().navigate(R.id.action_global_map)
         }
     }
 

@@ -12,9 +12,11 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Spinner
 import android.widget.SpinnerAdapter
+import androidx.activity.addCallback
 import androidx.constraintlayout.widget.Group
 import com.dustolab.beerapp.R
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.logic.usecase.AllBeerUseCase
@@ -49,6 +51,9 @@ class BeerListFragment(
         setButtonReset()
         setButtonFilter()
         setButtonSearch()
+        requireActivity().onBackPressedDispatcher.addCallback (this){
+            view.findNavController().navigate(R.id.action_global_beer_list)
+        }
     }
 
     private fun setWidget(typeUseCase: Int?){

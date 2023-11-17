@@ -40,6 +40,7 @@ class TabSocialFragment() : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         postAdapter = PostAdapter(requireContext(), reviewList)
         recyclerView.adapter = postAdapter
+        reviewList.clear()
         if(arguments?.getInt(TYPE_TAB)== ALL_REVIEW){
             setUseCase(BarReviewsUseCase(), BarReview::class.java)
             setUseCase(BeerReviewsUseCase(), BeerReview::class.java)

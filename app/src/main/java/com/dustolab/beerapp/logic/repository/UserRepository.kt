@@ -5,6 +5,7 @@ import com.dustolab.beerapp.model.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -29,7 +30,8 @@ class UserRepository(
 
     suspend fun getLocalUser(): User{
         val userUid = Firebase.auth.uid!!
-        val ritorno = dbReference.document(userUid).get().await().toObject(User::class.java)!!
+        val ritorno = dbReference.document(userUid).get()
+            .await().toObject(User::class.java)!!
         Log.d("BEER_REPO", "${ritorno}")
         return ritorno
     }
@@ -38,6 +40,20 @@ class UserRepository(
         return dbReference
             .whereEqualTo(UID, uid)
             .get()
+    }
+
+    fun addFollowing(followingUid: String){
+        val userUid = Firebase.auth.uid!!
+        dbReference.document(userUid).update(
+            FOLLOWING, FieldValue.arrayUnion(followingUid)
+        )
+    }
+
+    fun removeFollowing(followingUid: String){
+        val userUid = Firebase.auth.uid!!
+        dbReference.document(userUid).update(
+            FOLLOWING,  FieldValue.arrayRemove(followingUid)
+        )
     }
 
     companion object {

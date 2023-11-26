@@ -28,7 +28,17 @@ class SocialFragment : Fragment(R.layout.fragment_social){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tabLayout = view.findViewById<TabLayout>(R.id.tab_layout)
+        setTabs()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setTabs()
+    }
+
+    private fun setTabs(){
+
+        val tabLayout = requireView().findViewById<TabLayout>(R.id.tab_layout)
         val userViewModel: UserViewModel by viewModels()
         val thisFragment = this
         lifecycleScope.launch {
@@ -36,7 +46,7 @@ class SocialFragment : Fragment(R.layout.fragment_social){
             Log.d("BEER_FR", "${userViewModel.user}")
             val user = userViewModel.user!!
             val tabSocialAdapter = TabSocialAdapter(thisFragment, user )
-            val viewPager2 = view.findViewById<ViewPager2>(R.id.view_pager_2)
+            val viewPager2 = requireView().findViewById<ViewPager2>(R.id.view_pager_2)
             viewPager2.adapter = tabSocialAdapter
             TabLayoutMediator(tabLayout,viewPager2){tab, position ->
                 if(position==0){
@@ -47,9 +57,8 @@ class SocialFragment : Fragment(R.layout.fragment_social){
             }.attach()
         }
         requireActivity().onBackPressedDispatcher.addCallback (this){
-            view.findNavController().navigate(R.id.action_global_home)
+            requireView().findNavController().navigate(R.id.action_global_home)
         }
-
     }
 
 

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -36,7 +37,12 @@ class TabSocialFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
+        setReciclerView()
+    }
+
+    private fun setReciclerView(){
+
+        val recyclerView = requireView().findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
         postAdapter = PostAdapter(requireContext(), reviewList)
         recyclerView.adapter = postAdapter
@@ -54,19 +60,22 @@ class TabSocialFragment() : Fragment() {
             }
             val listFavoriteBar = arguments?.getStringArrayList(ARRAYLIST_FAVORITE_BAR)
             if(!listFavoriteBar.isNullOrEmpty()) {
-                setUseCase(FavoriteBarReviewsUseCase(listFavoriteBar!!), BarReview::class.java)
+                // setUseCase(FavoriteBarReviewsUseCase(listFavoriteBar!!), BarReview::class.java)
             }
             val listFavoriteBeer = arguments?.getStringArrayList(ARRAYLIST_FAVORITE_BEER)
             if(!listFavoriteBeer.isNullOrEmpty()){
-                setUseCase(FavoriteBeerReviewsUseCase(listFavoriteBeer!!), BeerReview::class.java)
+                // setUseCase(FavoriteBeerReviewsUseCase(listFavoriteBeer!!), BeerReview::class.java)
             }
         }
-
     }
 
     private fun <T:Review> setUseCase(useCase: UseCase, clazz: Class<T>){
         useCase.useCase()
             .addOnSuccessListener {documents->
+                if(documents.size() > 0){
+                    val tvNoFollowing = requireView().findViewById<TextView>(R.id.tv_no_following)
+                    tvNoFollowing.visibility= View.GONE
+                }
                 documents.forEach { doc->
                     val elem = doc.toObject(clazz)
                     reviewList.add(elem)

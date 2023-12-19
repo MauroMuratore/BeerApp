@@ -6,7 +6,6 @@
     app:startDestination="@id/fragment_home"
     >
 
-
     <action
         android:id="@+id/action_global_home"
         app:destination="@id/fragment_home"
@@ -73,6 +72,7 @@
             app:destination="@id/fragment_bar_activity"
             />
     </fragment>
+
     <fragment
         android:id="@+id/fragment_map"
         android:name="com.dustolab.beerapp.ui.fragment.MapFragment"
@@ -84,6 +84,12 @@
             >
         </action>
     </fragment>
+
+    <action
+        android:id="@+id/action_gloabl_map"
+        app:destination="@id/fragment_map"
+        />
+
     <fragment
         android:id="@+id/fragment_beer_list"
         android:name="com.dustolab.beerapp.ui.fragment.BeerListFragment"
@@ -118,7 +124,6 @@
         </action>
     </fragment>
 
-
     <fragment
         android:id="@+id/fragment_beer_activity"
         android:name="com.dustolab.beerapp.ui.fragment.BeerActivity"
@@ -135,6 +140,32 @@
         <action
             android:id="@+id/from_beer_to_make_a_review"
             app:destination="@+id/fragment_make_review"
+            />
+        <action
+            android:id="@+id/from_beer_to_all_reviews"
+            app:destination="@+id/fragment_item_reviews"
+            app:popUpTo="@id/fragment_beer_activity"
+            app:popUpToInclusive="false"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_item_reviews"
+        android:name="com.dustolab.beerapp.ui.fragment.ItemReviewsFragment"
+        tool:layout="@layout/fragment_tab_social"
+        >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="0"
+            >
+
+        </argument>
+
+        <argument
+            android:name="type"
+            app:argType="integer"
+            android:defaultValue="0"
             />
 
     </fragment>
@@ -154,6 +185,18 @@
         <action
             android:id="@+id/from_bar_to_make_a_review"
             app:destination="@+id/fragment_make_review"
+            app:popUpTo="@id/fragment_bar_activity"
+            app:popUpToInclusive="false"
+            />
+        <action
+            android:id="@+id/from_bar_to_bar_beers"
+            app:destination="@+id/fragment_beer_list"
+            />
+        <action
+            android:id="@+id/from_bar_to_all_reviews"
+            app:destination="@+id/fragment_item_reviews"
+            app:popUpTo="@id/fragment_bar_activity"
+            app:popUpToInclusive="false"
             />
     </fragment>
     <fragment
@@ -170,10 +213,14 @@
         <action
             android:id="@+id/review_beer_done"
             app:destination="@+id/fragment_beer_activity"
+            app:popUpTo="@id/fragment_make_review"
+            app:popUpToInclusive="false"
             />
         <action
             android:id="@+id/review_bar_done"
             app:destination="@+id/fragment_bar_activity"
+            app:popUpTo="@id/fragment_make_review"
+            app:popUpToInclusive="false"
             />
     </fragment>
 

@@ -3278,6 +3278,7 @@ int id SHOW_PROGRESS 0x7f09000b
 int id SYM 0x7f09000c
 int id TOP_END 0x7f09000d
 int id TOP_START 0x7f09000e
+int id TV_1 0x7f090281
 int id accelerate 0x7f09000f
 int id accessibility_action_clickable_span 0x7f090010
 int id accessibility_custom_action_0 0x7f090011
@@ -3323,6 +3324,7 @@ int id action_bar_title 0x7f090038
 int id action_container 0x7f09003a
 int id action_context_bar 0x7f09003b
 int id action_divider 0x7f09003c
+int id action_gloabl_map 0x7f09003d
 int id action_gloabl_user_area 0x7f09003e
 int id action_global_beer_list 0x7f09003f
 int id action_global_home 0x7f090040
@@ -3522,6 +3524,7 @@ int id fragment_container 0x7f090100
 int id fragment_container_view_tag 0x7f090101
 int id fragment_following 0x7f090293
 int id fragment_home 0x7f090102
+int id fragment_item_reviews 0x7f090284
 int id fragment_make_review 0x7f090103
 int id fragment_map 0x7f090104
 int id fragment_social 0x7f090105
@@ -3529,8 +3532,11 @@ int id fragment_theme 0x7f090297
 int id fragment_user_area 0x7f090106
 int id fragment_user_profile 0x7f090277
 int id from_bar_list_to_bar 0x7f090107
+int id from_bar_to_all_reviews 0x7f090285
+int id from_bar_to_bar_beers 0x7f090286
 int id from_bar_to_make_a_review 0x7f090108
 int id from_beer_list_to_beer 0x7f090109
+int id from_beer_to_all_reviews 0x7f090288
 int id from_beer_to_make_a_review 0x7f09010a
 int id from_following_to_profile_user 0x7f090294
 int id from_user_area_to_following 0x7f090295
@@ -3863,6 +3869,7 @@ int id transition_transform 0x7f090249
 int id triangle 0x7f09024a
 int id tv_address 0x7f09024b
 int id tv_alcohol_content 0x7f09024c
+int id tv_cost 0x7f09028a
 int id tv_day 0x7f09029a
 int id tv_filter_alcohol_content 0x7f09024d
 int id tv_filter_favorite 0x7f09024e
@@ -4030,6 +4037,7 @@ int layout bottom_navbar 0x7f0c0021
 int layout browser_actions_context_menu_page 0x7f0c0022
 int layout browser_actions_context_menu_row 0x7f0c0023
 int layout card_bar 0x7f0c0024
+int layout card_bar_beer 0x7f0c008d
 int layout card_beer 0x7f0c0025
 int layout card_item_review 0x7f0c0026
 int layout card_preview 0x7f0c0027
@@ -4055,6 +4063,7 @@ int layout fragment_beer_activity 0x7f0c0039
 int layout fragment_beer_list 0x7f0c003a
 int layout fragment_following 0x7f0c0092
 int layout fragment_home 0x7f0c003b
+int layout fragment_item_reviews 0x7f0c0090
 int layout fragment_make_review 0x7f0c003c
 int layout fragment_map 0x7f0c003d
 int layout fragment_profile_user 0x7f0c008c

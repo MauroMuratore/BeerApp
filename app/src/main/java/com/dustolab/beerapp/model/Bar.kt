@@ -13,8 +13,23 @@ data class Bar(
     var favoriteBy: List<String>? = null,
     var address: Address? = null
 ): Record(){
+    fun toStringTimeTables(): String{
+        var out: String
+        out = "Lunedì: "+timeTables!![0] +"\n" +
+                "Martedì: "+timeTables!![1]+"\n" +
+                "Mercoledì: "+timeTables!![2]+"\n" +
+                "Giovedì: "+timeTables!![3]+"\n" +
+                "Venerdì: "+timeTables!![4]+"\n" +
+                "Sabato: "+timeTables!![5]+"\n" +
+                "Domenica: "+timeTables!![6]
+        return out
+    }
 
-
-
-
+    fun getBeers(): ArrayList<String>{
+        var beers = ArrayList<String>()
+        beerList!!.forEach { beer ->
+            beers.add(beer.uid!!)
+        }
+        return  beers
+    }
 }

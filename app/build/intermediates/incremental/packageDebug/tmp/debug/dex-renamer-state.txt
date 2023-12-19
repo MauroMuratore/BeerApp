@@ -1,4 +1,4 @@
-#Mon Dec 11 12:54:10 CET 2023
+#Tue Dec 19 11:08:35 CET 2023
 base.0=/home/mauro/workspace/Android/BeerApp/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/home/mauro/workspace/Android/BeerApp/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.10=/home/mauro/workspace/Android/BeerApp/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex

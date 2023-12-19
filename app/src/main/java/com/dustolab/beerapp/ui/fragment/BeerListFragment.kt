@@ -21,29 +21,38 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.logic.usecase.AllBeerUseCase
 import com.dustolab.beerapp.logic.usecase.AllStyleUseCase
+import com.dustolab.beerapp.logic.usecase.BarBeersUseCase
+import com.dustolab.beerapp.logic.usecase.BarUseCase
 import com.dustolab.beerapp.logic.usecase.FavoriteBeerUseCase
 import com.dustolab.beerapp.logic.usecase.FilterBeerUseCase
 import com.dustolab.beerapp.logic.usecase.UseCase
+import com.dustolab.beerapp.model.Bar
 import com.dustolab.beerapp.model.Beer
+import com.dustolab.beerapp.model.BeerInBar
 import com.dustolab.beerapp.model.Style
+import com.dustolab.beerapp.ui.adapter.CardBarBeerAdapter
 import com.dustolab.beerapp.ui.adapter.CardBeerAdapter
 import com.google.android.material.slider.RangeSlider
-import java.util.Arrays
 
 class BeerListFragment(
-    private var beerList: ArrayList<Beer> = ArrayList()
+    private var beerList: ArrayList<Beer> = ArrayList(),
+    var barBeers: List<BeerInBar> = ArrayList()
+
 ): Fragment(R.layout.fragment_beer_list) {
 
     private lateinit var cardBeerAdapter: CardBeerAdapter
+    private lateinit var cardBarBeerAdapter: CardBarBeerAdapter
     private lateinit var spinnerStyle: Spinner
     private lateinit var sliderAlcoholContent: RangeSlider
     private lateinit var sliderRating: RangeSlider
     private lateinit var checkBoxFavorite: CheckBox
     private lateinit var filterGroup: Group
+    private var barUid: String? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val typeUseCase = arguments?.getInt(BEER_LIST_USE_CASE)
+        barUid = arguments?.getString("uid")
         setWidget(typeUseCase)
         setFilterView()
         setRecyclerView(typeUseCase)
@@ -82,20 +91,66 @@ class BeerListFragment(
         recyclerView.layoutManager= LinearLayoutManager(context)
         cardBeerAdapter = CardBeerAdapter(requireContext(), beerList)
         var useCase : UseCase? = null
-        if(typeUseCase== FAVORITE_BEER_USE_CASE) {
+        /*
+        if(typeUseCase == FAVORITE_BEER_USE_CASE) {
             useCase = FavoriteBeerUseCase()
-        }else{
+        }
+        if(typeUseCase == ALL_BEER_USE_CASE){
             useCase = AllBeerUseCase()
         }
-        useCase.useCase()
-            .addOnSuccessListener {documents->
-                documents.forEach{doc->
-                    val elem = doc.toObject(Beer::class.java)
-                    beerList.add(elem)
+        else{
+            //carico il bar
+            val barUseCase = BarUseCase(barUid!!)
+            barUseCase.useCase()
+                .addOnSuccessListener { documents ->
+                    documents.forEach{ doc ->
+                        val bar = doc.toObject((Bar::class.java))
+                        var beersUid = bar.getBeers()
+                        barBeers = bar.beerList!!
+                        useCase = BarBeersUseCase(beersUid)
+                    }
                 }
-                cardBeerAdapter.notifyDataSetChanged()
-                recyclerView.adapter=cardBeerAdapter
+        }
+        */
+        //nuovo
+        if(typeUseCase == ALL_BAR_BEERS_USE_CASE){
+            val barUseCase = BarUseCase(barUid!!)
+            barUseCase.useCase()
+                .addOnSuccessListener { documents ->
+                    documents.forEach { doc ->
+                        val bar = doc.toObject((Bar::class.java))
+                        var beersUid = bar.getBeers()
+                        barBeers = bar.beerList!!
+                        useCase = BarBeersUseCase(beersUid)
+                        useCase!!.useCase()
+                            .addOnSuccessListener { documents ->
+                                documents.forEach { doc ->
+                                    val elem = doc.toObject(Beer::class.java)
+                                    beerList.add(elem)
+                                }
+                                cardBarBeerAdapter = CardBarBeerAdapter(requireContext(), beerList, barBeers)
+                                recyclerView.adapter = cardBarBeerAdapter
+                            }
+                    }
+                }
+
+        }
+        else{
+            if(typeUseCase == FAVORITE_BEER_USE_CASE) {
+                useCase = FavoriteBeerUseCase()
             }
+            else
+                useCase = AllBeerUseCase()
+            useCase!!.useCase()
+                .addOnSuccessListener {documents->
+                    documents.forEach{doc->
+                        val elem = doc.toObject(Beer::class.java)
+                        beerList.add(elem)
+                    }
+                    cardBeerAdapter.notifyDataSetChanged()
+                    recyclerView.adapter=cardBeerAdapter
+                }
+        }
     }
     private fun setSpinnerView(){
         val allStyleUseCase = AllStyleUseCase()
@@ -207,7 +262,8 @@ class BeerListFragment(
 
     companion object{
         const val ALL_BEER_USE_CASE : Int = 0
-        const val FAVORITE_BEER_USE_CASE: Int =1
+        const val FAVORITE_BEER_USE_CASE: Int = 1
+        const val ALL_BAR_BEERS_USE_CASE: Int = 2
         const val BEER_LIST_USE_CASE : String = "beerListUseCase"
     }
 

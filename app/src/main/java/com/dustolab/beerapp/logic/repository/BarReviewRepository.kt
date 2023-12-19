@@ -25,23 +25,15 @@ class BarReviewRepository(
     fun loadAllBarReview(): Task<QuerySnapshot>{
         return dbReference.get()
     }
-
     fun loadFilterBarReview(filter: Filter): Task<QuerySnapshot>{
         return dbReference
             .where(filter)
             .get()
     }
 
-
-
-
-
-
-
-
     companion object{
         const val PATH = "bar_reviews"
-        const val USERNAME = "username"
-        const val BAR = "bar"
+        const val BAR : String = "bar"
+        const val USERNAME : String = "username"
     }
 }

@@ -23,7 +23,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:background="@color/black"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/btn_favorite"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

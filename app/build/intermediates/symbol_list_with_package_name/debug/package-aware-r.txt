@@ -3279,6 +3279,7 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id TV_1
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -3324,6 +3325,7 @@ id action_bar_title
 id action_container
 id action_context_bar
 id action_divider
+id action_gloabl_map
 id action_gloabl_user_area
 id action_global_beer_list
 id action_global_home
@@ -3523,6 +3525,7 @@ id fragment_container
 id fragment_container_view_tag
 id fragment_following
 id fragment_home
+id fragment_item_reviews
 id fragment_make_review
 id fragment_map
 id fragment_social
@@ -3530,8 +3533,11 @@ id fragment_theme
 id fragment_user_area
 id fragment_user_profile
 id from_bar_list_to_bar
+id from_bar_to_all_reviews
+id from_bar_to_bar_beers
 id from_bar_to_make_a_review
 id from_beer_list_to_beer
+id from_beer_to_all_reviews
 id from_beer_to_make_a_review
 id from_following_to_profile_user
 id from_user_area_to_following
@@ -3864,6 +3870,7 @@ id transition_transform
 id triangle
 id tv_address
 id tv_alcohol_content
+id tv_cost
 id tv_day
 id tv_filter_alcohol_content
 id tv_filter_favorite
@@ -4031,6 +4038,7 @@ layout bottom_navbar
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout card_bar
+layout card_bar_beer
 layout card_beer
 layout card_item_review
 layout card_preview
@@ -4056,6 +4064,7 @@ layout fragment_beer_activity
 layout fragment_beer_list
 layout fragment_following
 layout fragment_home
+layout fragment_item_reviews
 layout fragment_make_review
 layout fragment_map
 layout fragment_profile_user

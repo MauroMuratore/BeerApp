@@ -2,6 +2,8 @@ package com.dustolab.beerapp.logic.repository
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
@@ -21,7 +23,6 @@ class BarRepository(
             .get()
     }
 
-
     fun loadPopularBar(limit : Long = -1): Task<QuerySnapshot>{
         if(limit > 0)
             return dbReference
@@ -33,9 +34,20 @@ class BarRepository(
                 .orderBy(RATING,Query.Direction.DESCENDING)
                 .get()
     }
+
+    fun addFavBy(user: String, bar: String){
+        dbReference.document(bar).update(FAVORITE_BY, FieldValue.arrayUnion(user))
+    }
+
+    fun removeFavBy(user: String, bar: String){
+        dbReference.document(bar).update(FAVORITE_BY, FieldValue.arrayRemove(user))
+    }
+
     companion object{
         const val UID : String = "uid"
         const val PATH: String = "bar"
         const val RATING: String = "rating"
+        const val FAVORITE_BY: String = "favoriteBy"
+        const val BEER_LIST: String = "beerList"
     }
 }

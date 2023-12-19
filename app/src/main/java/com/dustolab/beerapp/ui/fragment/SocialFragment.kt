@@ -11,9 +11,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.dustolab.beerapp.logic.usecase.BarReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.BeerReviewsUseCase
-import androidx.viewpager2.widget.ViewPager2
 import com.dustolab.beerapp.model.BarReview
 import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review
@@ -59,6 +59,33 @@ class SocialFragment : Fragment(R.layout.fragment_social){
         requireActivity().onBackPressedDispatcher.addCallback (this){
             requireView().findNavController().navigate(R.id.action_global_home)
         }
+        val recyclerView = view?.findViewById<RecyclerView>(R.id.recycler_view)
+        recyclerView?.layoutManager = LinearLayoutManager(context)
+        val reviewList = ArrayList<Review>()
+        val postAdapter = PostAdapter(requireContext(), reviewList)
+        recyclerView?.adapter = postAdapter
+        val barReviewsUseCase = BarReviewsUseCase()
+        val allBeerReviewsUseCase = BeerReviewsUseCase()
+        barReviewsUseCase.useCase()
+            .addOnSuccessListener { documents ->
+                documents.forEach { doc ->
+                    val elem = doc.toObject(BarReview::class.java)
+                    reviewList.add(elem)
+                    reviewList.shuffle()
+                    postAdapter.notifyDataSetChanged()
+                }
+            }
+
+        allBeerReviewsUseCase.useCase()
+            .addOnSuccessListener {documents->
+                documents.forEach { doc->
+                    val elem = doc.toObject(BeerReview::class.java)
+                    reviewList.add(elem)
+                    reviewList.shuffle()
+                    postAdapter.notifyDataSetChanged()
+                }
+
+            }
     }
 
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="amber_200">#FFE082</color>
+    <color name="amber_500">#FFC107</color>
+    <color name="amber_700">#FFA000</color>
+    <color name="black">#FF000000</color>
+    <color name="brown_900">#FF1C0A01</color>
+    <color name="brown_bean_500">#FF4B120D</color>
+    <color name="brown_bean_700">#FF2B0504</color>
+    <color name="chocolate_500">#FF874000</color>
+    <color name="chocolate_700">#FF5C2C01</color>
+    <color name="orange_300">#FFB74D</color>
+    <color name="orange_700">#F57C00</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="yellow">#FFEBBB40</color>
+    <style name="Theme.BeerApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/chocolate_500</item>
+        <item name="colorPrimaryVariant">@color/chocolate_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/brown_bean_500</item>
+        <item name="colorSecondaryVariant">@color/brown_bean_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        <item name="android:colorBackground">@color/brown_900</item>
+        <item name="cardBackgroundColor">@color/chocolate_700</item>
+
+    </style>
+</resources>

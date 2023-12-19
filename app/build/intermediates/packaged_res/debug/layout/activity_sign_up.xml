@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="@android:color/black"
+        android:scaleType="fitXY"
+        android:src="@drawable/schiuma" />
+
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo_beerupp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="45dp"
+        />
+    <EditText
+        android:id="@+id/etUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rounded_style"
+        android:paddingVertical="15dp"
+        android:paddingStart="10dp"
+        android:ems="10"
+        android:inputType="text"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E-mail"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="45dp"
+        />
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rounded_style"
+        android:paddingVertical="15dp"
+        android:paddingStart="10dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="45dp"
+        />
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rounded_style"
+        android:paddingVertical="15dp"
+        android:paddingStart="10dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conferma Password"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:paddingStart="45dp"
+        />
+    <EditText
+        android:id="@+id/etConfermaPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/rounded_style"
+        android:paddingVertical="15dp"
+        android:paddingStart="10dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        />
+
+    <Button
+        android:id="@+id/btnSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:layout_gravity="center_horizontal"
+        android:onClick="createUser"
+        android:text="Registrati"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:onClick="switchToLogin"
+        android:text="Hai già un account?" />
+
+
+</LinearLayout>

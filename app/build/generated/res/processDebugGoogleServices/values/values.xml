@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">705364567389-6iqapt87ek16otp2ei7l1pkj2lrd1mha.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://beer-app-8729f-default-rtdb.europe-west1.firebasedatabase.app</string>
+    <string name="gcm_defaultSenderId" translatable="false">705364567389</string>
+    <string name="google_api_key" translatable="false">AIzaSyBGks9E39376lEQneFDEQpolPGkUsFGOkQ</string>
+    <string name="google_app_id" translatable="false">1:705364567389:android:c99e684d1105735f8df4b4</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBGks9E39376lEQneFDEQpolPGkUsFGOkQ</string>
+    <string name="google_storage_bucket" translatable="false">beer-app-8729f.appspot.com</string>
+    <string name="project_id" translatable="false">beer-app-8729f</string>
+</resources>

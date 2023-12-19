@@ -72,6 +72,10 @@ class ProfileUserFragment(): Fragment(R.layout.fragment_profile_user) {
                     reviewList.shuffle()
                     postAdapter.notifyDataSetChanged()
                 }
+                if(reviewList.size > 0){
+                    val tvNoReviews = requireView().findViewById<TextView>(R.id.tv_no_reviews)
+                    tvNoReviews.visibility = View.GONE
+                }
                 setMedaglie()
                 Log.d("BEER_PROFILE_USER", "review list : ${reviewList}")
 

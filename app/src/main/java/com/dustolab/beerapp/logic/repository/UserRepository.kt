@@ -6,6 +6,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
@@ -54,6 +55,12 @@ class UserRepository(
         dbReference.document(userUid).update(
             FOLLOWING,  FieldValue.arrayRemove(followingUid)
         )
+    }
+
+    fun loadFilterUser(filter: Filter): Task<QuerySnapshot>{
+        return dbReference
+            .where(filter)
+            .get()
     }
 
     companion object {

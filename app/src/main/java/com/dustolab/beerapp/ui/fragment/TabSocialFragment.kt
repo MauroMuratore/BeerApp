@@ -70,10 +70,11 @@ class TabSocialFragment() : Fragment() {
     }
 
     private fun <T:Review> setUseCase(useCase: UseCase, clazz: Class<T>){
+        val rView = this.view
         useCase.useCase()
             .addOnSuccessListener {documents->
                 if(documents.size() > 0){
-                    val tvNoFollowing = requireView().findViewById<TextView>(R.id.tv_no_following)
+                    val tvNoFollowing = rView!!.findViewById<TextView>(R.id.tv_no_following)
                     tvNoFollowing.visibility= View.GONE
                 }
                 documents.forEach { doc->

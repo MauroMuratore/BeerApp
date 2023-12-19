@@ -14,7 +14,7 @@
         android:id="@+id/iv_schiuma"
         android:layout_width="0dp"
         android:layout_height="73dp"
-        android:background="@android:color/black"
+        android:background="?attr/colorPrimaryVariant"
         android:scaleType="fitXY"
         android:src="@drawable/schiuma"
         app:layout_constraintTop_toTopOf="parent"

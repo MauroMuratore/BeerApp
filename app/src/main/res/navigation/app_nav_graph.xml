@@ -100,6 +100,22 @@
         android:name="com.dustolab.beerapp.ui.fragment.UserAreaFragment"
         android:label="User Area"
         tool:layout="@layout/fragment_user_area">
+
+        <action
+            android:id="@+id/from_user_area_to_profile_user"
+            app:destination="@+id/fragment_user_profile"
+            >
+        </action>
+        <action
+            android:id="@+id/from_user_area_to_following"
+            app:destination="@+id/fragment_following"
+            >
+        </action>
+        <action
+            android:id="@+id/from_user_area_to_theme"
+            app:destination="@id/fragment_theme"
+            >
+        </action>
     </fragment>
 
 
@@ -187,9 +203,25 @@
             android:id="@+id/action_user_profile_to_bar"
             app:destination="@id/fragment_bar_activity"
             />
-
-
     </fragment>
 
+    <fragment
+        android:id="@+id/fragment_following"
+        android:name="com.dustolab.beerapp.ui.fragment.FollowingFragment"
+        tool:layout="@layout/fragment_following"
+        >
+        <action
+            android:id="@+id/from_following_to_profile_user"
+            app:destination="@id/fragment_user_profile"
+            >
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_theme"
+        android:name="com.dustolab.beerapp.ui.fragment.ThemeFragment"
+        tool:layout="@layout/fragment_theme"
+        >
+    </fragment>
 
 </navigation>

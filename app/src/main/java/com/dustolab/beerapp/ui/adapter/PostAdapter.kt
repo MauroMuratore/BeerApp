@@ -127,7 +127,7 @@ class PostAdapter(
                         holder.layerReview.setOnClickListener { view ->
                             var beer = bundleOf("uid" to beer.uid)
                             view.findNavController()
-                                .navigate(R.id.action_user_profile_to_beer)
+                                .navigate(R.id.action_user_profile_to_beer, beer)
                         }
                     }
 

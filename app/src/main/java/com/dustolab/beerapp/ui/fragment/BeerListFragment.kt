@@ -31,7 +31,7 @@ import com.google.android.material.slider.RangeSlider
 import java.util.Arrays
 
 class BeerListFragment(
-    var beerList: ArrayList<Beer> = ArrayList()
+    private var beerList: ArrayList<Beer> = ArrayList()
 ): Fragment(R.layout.fragment_beer_list) {
 
     private lateinit var cardBeerAdapter: CardBeerAdapter

@@ -24,6 +24,7 @@ import com.dustolab.beerapp.model.BarReview
 import com.dustolab.beerapp.model.Review
 import com.dustolab.beerapp.ui.adapter.CardReviewAdapter
 import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.Gson
 
 
 class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
@@ -41,6 +42,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
     private var favoriteStatus: Boolean = false
     private lateinit var btnMoreReview: Button
     private lateinit var btnBarBeers: Button
+    private lateinit var btnBarMenu: Button
     private val imageRepository : ImageRepository = ImageRepository()
     private val user = FirebaseAuth.getInstance().currentUser
 
@@ -60,6 +62,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
         btnFavorite = view.findViewById<ImageButton>(R.id.btn_favorite)
         btnMoreReview = view.findViewById(R.id.btn_more_review)
         btnBarBeers = view.findViewById(R.id.btn_bar_beer)
+        btnBarMenu = view.findViewById(R.id.btn_bar_food)
         setBarInfo(uid)
     }
 
@@ -117,6 +120,12 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
                         var useCase = bundleOf("uid" to bar.uid, "beerListUseCase" to 2)
                         view?.findNavController()
                             ?.navigate(R.id.from_bar_to_bar_beers, useCase)
+                    }
+                    btnBarMenu.setOnClickListener {
+                        var arg = Gson().toJson(bar)
+                        var bundle = bundleOf("bar" to arg)
+                        view?.findNavController()
+                            ?.navigate(R.id.from_bar_to_bar_menu, bundle)
                     }
                 }
             }

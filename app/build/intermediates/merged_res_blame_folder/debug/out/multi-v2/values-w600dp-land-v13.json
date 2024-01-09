@@ -4,7 +4,7 @@
             "outputFile": "com.dustolab.beerapp-mergeDebugResources-84:/values-w600dp-land-v13/values-w600dp-land-v13.xml",
             "map": [
                 {
-                    "source": "/home/mauro/.gradle/caches/transforms-3/a20b9309673eaccff70c1bf72241a090/transformed/material-1.10.0/res/values-w600dp-land-v13/values-w600dp-land-v13.xml",
+                    "source": "C:\\Users\\nikbe\\.gradle\\caches\\transforms-3\\a20b9309673eaccff70c1bf72241a090\\transformed\\material-1.10.0\\res\\values-w600dp-land-v13\\values-w600dp-land-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -4,7 +4,7 @@
             "outputFile": "com.dustolab.beerapp-mergeDebugResources-84:/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "/home/mauro/.gradle/caches/transforms-3/4ee64f6aaf9546023889aaad643cf891/transformed/appcompat-1.6.1/res/values-h720dp-v13/values-h720dp-v13.xml",
+                    "source": "C:\\Users\\nikbe\\.gradle\\caches\\transforms-3\\4ee64f6aaf9546023889aaad643cf891\\transformed\\appcompat-1.6.1\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

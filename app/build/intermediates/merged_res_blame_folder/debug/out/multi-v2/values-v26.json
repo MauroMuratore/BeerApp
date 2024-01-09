@@ -4,7 +4,7 @@
             "outputFile": "com.dustolab.beerapp-mergeDebugResources-84:/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "/home/mauro/.gradle/caches/transforms-3/4ee64f6aaf9546023889aaad643cf891/transformed/appcompat-1.6.1/res/values-v26/values-v26.xml",
+                    "source": "C:\\Users\\nikbe\\.gradle\\caches\\transforms-3\\4ee64f6aaf9546023889aaad643cf891\\transformed\\appcompat-1.6.1\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

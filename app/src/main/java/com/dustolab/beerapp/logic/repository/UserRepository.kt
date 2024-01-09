@@ -45,6 +45,7 @@ class UserRepository(
             .get()
     }
 
+
     fun addFollowing(followingUid: String){
         val userUid = Firebase.auth.uid!!
         dbReference.document(userUid).update(

@@ -8,6 +8,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.tasks.await
 
 class BarRepository(
     private val dbReference: CollectionReference = Firebase.firestore.collection(PATH)
@@ -21,6 +22,13 @@ class BarRepository(
         return dbReference
             .whereEqualTo(UID, uid)
             .get()
+    }
+
+    suspend fun getBar2(uid:String): QuerySnapshot{
+        return dbReference
+            .whereEqualTo(UID, uid)
+            .get()
+            .await()
     }
 
     fun loadPopularBar(limit : Long = -1): Task<QuerySnapshot>{

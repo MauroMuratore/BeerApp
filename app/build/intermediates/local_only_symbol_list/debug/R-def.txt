@@ -80,6 +80,7 @@ id btnLogin
 id btnSignup
 id btn_bar_beer
 id btn_bar_food
+id btn_close
 id btn_favorite
 id btn_filter_do
 id btn_filter_reset
@@ -111,6 +112,7 @@ id favorite_beers_btn
 id favorite_beers_recycler
 id following_button
 id fragment_bar_activity
+id fragment_bar_menu
 id fragment_beer_activity
 id fragment_beer_list
 id fragment_container
@@ -126,6 +128,7 @@ id fragment_user_profile
 id from_bar_list_to_bar
 id from_bar_to_all_reviews
 id from_bar_to_bar_beers
+id from_bar_to_bar_menu
 id from_bar_to_make_a_review
 id from_beer_list_to_beer
 id from_beer_to_all_reviews
@@ -159,6 +162,7 @@ id popular_beers_recycler
 id rating_bar
 id rating_beer
 id recycler_view
+id recycler_view_menu
 id review_bar_done
 id review_beer_done
 id reviews
@@ -179,6 +183,8 @@ id tv_filter_alcohol_content
 id tv_filter_favorite
 id tv_filter_rating
 id tv_filter_style
+id tv_food_cost
+id tv_food_name
 id tv_fragment_title
 id tv_info
 id tv_night
@@ -186,6 +192,7 @@ id tv_no_following
 id tv_no_reviews
 id tv_review_description
 id tv_review_name
+id tv_separator
 id tv_style
 id tv_title
 id tv_username
@@ -202,9 +209,11 @@ layout card_bar
 layout card_bar_beer
 layout card_beer
 layout card_item_review
+layout card_menu_entry
 layout card_preview
 layout card_user
 layout fragment_bar_activity
+layout fragment_bar_menu
 layout fragment_beer_activity
 layout fragment_beer_list
 layout fragment_following

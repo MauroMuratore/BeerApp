@@ -1,5 +1,7 @@
 package com.dustolab.beerapp.model
 
+import java.io.Serializable
+
 
 data class Bar(
     override var uid: String? = null,
@@ -12,7 +14,7 @@ data class Bar(
     var rating: Float? = null,
     var favoriteBy: List<String>? = null,
     var address: Address? = null
-): Record(){
+): Record(), Serializable{
     fun toStringTimeTables(): String{
         var out: String
         out = "Lunedì: "+timeTables!![0] +"\n" +

@@ -20,8 +20,10 @@ import com.google.gson.Gson
 class MenuDialogFragment: DialogFragment() {
 
     private lateinit var bar: Bar
-    private lateinit var barMenu: List<MenuEntry>
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var barMenuFood: List<MenuEntry>
+    private lateinit var barMenuDrink: List<MenuEntry>
+    private lateinit var recyclerViewFood: RecyclerView
+    private lateinit var recyclerViewDrink: RecyclerView
     private lateinit var btnClose: Button
     private lateinit var cardBarMenuEntryAdapter: CardBarMenuEntryAdapter
 
@@ -33,17 +35,24 @@ class MenuDialogFragment: DialogFragment() {
         var rootView: View = inflater.inflate(R.layout.fragment_bar_menu, container, false)
         var jsonBar = requireArguments()?.getString("bar")
         bar = Gson().fromJson(jsonBar, Bar::class.java)
-        barMenu = bar.food!!
+        barMenuFood = bar.food!!
+        barMenuDrink = bar.drink!!
         btnClose = rootView.findViewById(R.id.btn_close)
-        recyclerView = rootView.findViewById<RecyclerView>(R.id.recycler_view_menu)
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerViewFood = rootView.findViewById<RecyclerView>(R.id.recycler_view_menu_food)
+        recyclerViewDrink = rootView.findViewById<RecyclerView>(R.id.recycler_view_menu_drink)
 
-        cardBarMenuEntryAdapter = CardBarMenuEntryAdapter(requireContext(), barMenu)
-        recyclerView.adapter = cardBarMenuEntryAdapter
+        recyclerViewFood.layoutManager = LinearLayoutManager(context)
+        recyclerViewDrink.layoutManager = LinearLayoutManager(context)
+
+
+        cardBarMenuEntryAdapter = CardBarMenuEntryAdapter(requireContext(), barMenuFood)
+        recyclerViewFood.adapter = cardBarMenuEntryAdapter
+        cardBarMenuEntryAdapter = CardBarMenuEntryAdapter(requireContext(), barMenuDrink)
+        recyclerViewDrink.adapter = cardBarMenuEntryAdapter
+
         btnClose.setOnClickListener{
             dismiss()
         }
-        dialog?.window?.setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
         return rootView
     }
 }

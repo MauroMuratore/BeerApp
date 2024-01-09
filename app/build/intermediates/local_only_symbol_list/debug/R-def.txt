@@ -100,6 +100,7 @@ id cb_filter_favorite
 id coordinator
 id day_theme
 id drag_handle
+id drink_section
 id etConfermaPassword
 id etEmail
 id etPassword
@@ -111,6 +112,7 @@ id fab_my_position
 id favorite_beers_btn
 id favorite_beers_recycler
 id following_button
+id food_section
 id fragment_bar_activity
 id fragment_bar_menu
 id fragment_beer_activity
@@ -162,7 +164,8 @@ id popular_beers_recycler
 id rating_bar
 id rating_beer
 id recycler_view
-id recycler_view_menu
+id recycler_view_menu_drink
+id recycler_view_menu_food
 id review_bar_done
 id review_beer_done
 id reviews

@@ -3476,6 +3476,7 @@ id dragRight
 id dragStart
 id dragUp
 id drag_handle
+id drink_section
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -3518,6 +3519,7 @@ id flip
 id flipped_y
 id floating
 id following_button
+id food_section
 id forever
 id fragment_bar_activity
 id fragment_bar_menu
@@ -3742,7 +3744,8 @@ id rating_beer
 id ratio
 id rectangles
 id recycler_view
-id recycler_view_menu
+id recycler_view_menu_drink
+id recycler_view_menu_food
 id report_drawn
 id reverseSawtooth
 id review_bar_done

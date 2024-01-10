@@ -41,6 +41,7 @@ class BarActivity : Fragment(R.layout.fragment_bar_activity) {
     private lateinit var cardReviewAdapter : CardReviewAdapter
     private lateinit var btnFavorite: CheckBox
     private var favoriteStatus: Boolean = false
+    private lateinit var btnMap: Button
     private lateinit var btnMoreReview: Button
     private lateinit var btnBarBeers: Button
     private lateinit var btnBarMenu: Button
@@ -62,6 +63,7 @@ class BarActivity : Fragment(R.layout.fragment_bar_activity) {
         btnMakeReview = view.findViewById(R.id.btn_make_review)
         btnFavorite = view.findViewById<CheckBox>(R.id.btn_favorite)
         btnMoreReview = view.findViewById(R.id.btn_more_review)
+        btnMap = view.findViewById<Button>(R.id.btn_map_shortcut)
         btnBarBeers = view.findViewById(R.id.btn_bar_beer)
         btnBarMenu = view.findViewById(R.id.btn_bar_food)
         setBarInfo(uid)
@@ -111,6 +113,11 @@ class BarActivity : Fragment(R.layout.fragment_bar_activity) {
                     }
                     btnFavorite.setOnClickListener {
                         changeFavoriteStatus()
+                    }
+                    btnMap.setOnClickListener {
+                        var useCase = bundleOf("uid" to bar.uid)
+                        view?.findNavController()
+                            ?.navigate(R.id.from_bar_to_map, useCase)
                     }
                     btnMoreReview.setOnClickListener {
                         var useCase = bundleOf("uid" to bar.uid, "type" to 1)

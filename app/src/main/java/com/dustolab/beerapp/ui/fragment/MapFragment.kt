@@ -66,14 +66,8 @@ class MapFragment: Fragment(R.layout.fragment_map) {
             view.findNavController().navigate(R.id.action_global_map)
         }
         setPosition()
-        arguments?.let {
-            val uid = requireArguments().getString("uid")
-            val bar = barList.filter {it ->
-                it.uid == uid
-            }.first()
-            mapManager.setLocation(bar.address!!.longitude!!, bar.address!!.latitude!!)
-            setCardBarList(BottomSheetBehavior.STATE_HALF_EXPANDED, bar)
-        }
+
+
     }
 
     private fun setMapManager(){
@@ -113,6 +107,14 @@ class MapFragment: Fragment(R.layout.fragment_map) {
                     }
                 }
                 cardBarList.addAll(barList)
+                val uid = requireArguments().getString("uid")
+                if(uid!=null) {
+                    val bar = barList.first { it ->
+                        it.uid == uid
+                    }
+                    mapManager.setLocation(bar.address!!.longitude!!, bar.address!!.latitude!!)
+                    setCardBarList(BottomSheetBehavior.STATE_HALF_EXPANDED, bar)
+                }
                 cardBarAdapter.notifyDataSetChanged()
             }
     }

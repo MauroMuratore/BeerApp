@@ -3371,6 +3371,7 @@ int id bar_description 0x7f090068
 int id bar_image 0x7f090069
 int id bar_name 0x7f09006a
 int id bar_recycler_view 0x7f09006b
+int id bar_section 0x7f090295
 int id bar_timetables 0x7f09006c
 int id barrier 0x7f09006d
 int id baseline 0x7f09006e
@@ -3399,6 +3400,7 @@ int id btn_favorite 0x7f090084
 int id btn_filter_do 0x7f090085
 int id btn_filter_reset 0x7f090086
 int id btn_filter_show 0x7f090087
+int id btn_find_bars 0x7f090294
 int id btn_following 0x7f090088
 int id btn_gestione_profilo 0x7f090089
 int id btn_impostazioni 0x7f09008a
@@ -3521,6 +3523,7 @@ int id following_button 0x7f0900fd
 int id food_section 0x7f090291
 int id forever 0x7f0900fe
 int id fragment_bar_activity 0x7f0900ff
+int id fragment_bar_list 0x7f090297
 int id fragment_bar_menu 0x7f090100
 int id fragment_beer_activity 0x7f090101
 int id fragment_beer_list 0x7f090102
@@ -3542,6 +3545,7 @@ int id from_bar_to_bar_menu 0x7f090111
 int id from_bar_to_make_a_review 0x7f090112
 int id from_beer_list_to_beer 0x7f090113
 int id from_beer_to_all_reviews 0x7f090114
+int id from_beer_to_bars 0x7f090298
 int id from_beer_to_make_a_review 0x7f090115
 int id from_following_to_profile_user 0x7f090116
 int id from_user_area_to_following 0x7f090117
@@ -3743,6 +3747,7 @@ int id rating_beer 0x7f0901da
 int id ratio 0x7f0901db
 int id rectangles 0x7f0901dc
 int id recycler_view 0x7f0901dd
+int id recycler_view_bars 0x7f090296
 int id recycler_view_menu_drink 0x7f090292
 int id recycler_view_menu_food 0x7f090293
 int id report_drawn 0x7f0901df
@@ -4070,6 +4075,7 @@ int layout design_navigation_menu_item 0x7f0c0038
 int layout design_text_input_end_icon 0x7f0c0039
 int layout design_text_input_start_icon 0x7f0c003a
 int layout fragment_bar_activity 0x7f0c003b
+int layout fragment_bar_list 0x7f0c0094
 int layout fragment_bar_menu 0x7f0c003c
 int layout fragment_beer_activity 0x7f0c003d
 int layout fragment_beer_list 0x7f0c003e

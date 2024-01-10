@@ -69,6 +69,7 @@ id bar_description
 id bar_image
 id bar_name
 id bar_recycler_view
+id bar_section
 id bar_timetables
 id beer_description
 id beer_image
@@ -85,6 +86,7 @@ id btn_favorite
 id btn_filter_do
 id btn_filter_reset
 id btn_filter_show
+id btn_find_bars
 id btn_following
 id btn_gestione_profilo
 id btn_impostazioni
@@ -114,6 +116,7 @@ id favorite_beers_recycler
 id following_button
 id food_section
 id fragment_bar_activity
+id fragment_bar_list
 id fragment_bar_menu
 id fragment_beer_activity
 id fragment_beer_list
@@ -134,6 +137,7 @@ id from_bar_to_bar_menu
 id from_bar_to_make_a_review
 id from_beer_list_to_beer
 id from_beer_to_all_reviews
+id from_beer_to_bars
 id from_beer_to_make_a_review
 id from_following_to_profile_user
 id from_user_area_to_following
@@ -164,6 +168,7 @@ id popular_beers_recycler
 id rating_bar
 id rating_beer
 id recycler_view
+id recycler_view_bars
 id recycler_view_menu_drink
 id recycler_view_menu_food
 id review_bar_done
@@ -216,6 +221,7 @@ layout card_menu_entry
 layout card_preview
 layout card_user
 layout fragment_bar_activity
+layout fragment_bar_list
 layout fragment_bar_menu
 layout fragment_beer_activity
 layout fragment_beer_list

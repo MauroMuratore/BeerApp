@@ -1,4 +1,4 @@
-#Tue Jan 09 16:32:21 CET 2024
+#Wed Jan 10 16:01:41 CET 2024
 base.0=C\:\\Users\\nikbe\\AndroidStudioProjects\\BeerApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\nikbe\\AndroidStudioProjects\\BeerApp\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.10=C\:\\Users\\nikbe\\AndroidStudioProjects\\BeerApp\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex

@@ -147,6 +147,12 @@
             app:popUpTo="@id/fragment_beer_activity"
             app:popUpToInclusive="false"
             />
+        <action
+            android:id="@+id/from_beer_to_bars"
+            app:destination="@+id/fragment_bar_list"
+            app:popUpTo="@id/fragment_bar_activity"
+            app:popUpToInclusive="false"
+            />
     </fragment>
 
     <fragment
@@ -178,6 +184,17 @@
 
         <argument
             android:name="bar"
+            app:argType="string" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/fragment_bar_list"
+        android:name="com.dustolab.beerapp.ui.fragment.BarsDialogFragment"
+        tool:layout="@layout/fragment_bar_list"
+        >
+
+        <argument
+            android:name="bars"
             app:argType="string" />
     </dialog>
 

@@ -88,16 +88,24 @@
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable-night\\baseline_search_24.xml"
     },
     {
+        "merged": "com.dustolab.beerapp-merged_res-86:/navigation_app_nav_graph.xml.flat",
+        "source": "com.dustolab.beerapp-main-88:/navigation/app_nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_fragment_bar_list.xml.flat",
+        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\fragment_bar_list.xml"
+    },
+    {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable-night_baseline_filter_list_24.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable-night\\baseline_filter_list_24.xml"
     },
     {
-        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_beer.xml.flat",
-        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_beer.xml"
-    },
-    {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_menu_entry.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_menu_entry.xml"
+    },
+    {
+        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_beer.xml.flat",
+        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_beer.xml"
     },
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -186,10 +194,6 @@
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable-night_baseline_star_24.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable-night\\baseline_star_24.xml"
-    },
-    {
-        "merged": "com.dustolab.beerapp-merged_res-86:/layout_fragment_bar_menu.xml.flat",
-        "source": "com.dustolab.beerapp-main-88:/layout/fragment_bar_menu.xml"
     },
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_fragment_make_review.xml.flat",

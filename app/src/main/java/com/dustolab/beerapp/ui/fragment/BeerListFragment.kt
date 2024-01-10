@@ -179,11 +179,11 @@ class BeerListFragment(
             val valuesAlcoholContent = ArrayList<Float>()
             valuesAlcoholContent.add(0.0F)
             valuesAlcoholContent.add(15.0F)
-            sliderAlcoholContent.setValues(valuesAlcoholContent)
+            sliderAlcoholContent.values = valuesAlcoholContent
             val valuesRating = ArrayList<Float>()
             valuesRating.add(0.0F)
             valuesRating.add(5.0F)
-            sliderRating.setValues(valuesRating)
+            sliderRating.values = valuesRating
             checkBoxFavorite.isChecked=false
         }
     }

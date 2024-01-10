@@ -20,7 +20,7 @@ class BootActivity : ComponentActivity(){
             Log.d("BOOT_ACTIVITY", "No user registered")
             startActivity(Intent(this, LoginActivity::class.java))
         }else{
-            Log.d("BOOT_ACTIVITY", "User ${currentUser!!.uid} registered")
+            Log.d("BOOT_ACTIVITY", "User ${currentUser.uid} registered")
             startActivity(Intent(this, MainActivity::class.java))
         }
 

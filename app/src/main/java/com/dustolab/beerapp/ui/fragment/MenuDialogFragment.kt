@@ -31,9 +31,9 @@ class MenuDialogFragment: DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         var rootView: View = inflater.inflate(R.layout.fragment_bar_menu, container, false)
-        var jsonBar = requireArguments()?.getString("bar")
+        var jsonBar = requireArguments().getString("bar")
         bar = Gson().fromJson(jsonBar, Bar::class.java)
         barMenuFood = bar.food!!
         barMenuDrink = bar.drink!!

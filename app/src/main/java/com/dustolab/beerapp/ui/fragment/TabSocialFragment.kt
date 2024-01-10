@@ -23,7 +23,7 @@ import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review
 import com.dustolab.beerapp.ui.adapter.PostAdapter
 
-class TabSocialFragment() : Fragment() {
+class TabSocialFragment : Fragment() {
 
     private var reviewList: ArrayList<Review> = ArrayList<Review>()
     private lateinit var postAdapter: PostAdapter
@@ -55,8 +55,8 @@ class TabSocialFragment() : Fragment() {
             val listFollower = arguments?.getStringArrayList(ARRAYLIST_FOLLOWER)
             Log.d("BEER_", "${listFollower}")
             if(!listFollower.isNullOrEmpty()) {
-                setUseCase(FollowingBarReviewsUseCase(listFollower!!), BarReview::class.java)
-                setUseCase(FollowingBeerReviewsUseCase(listFollower!!), BeerReview::class.java)
+                setUseCase(FollowingBarReviewsUseCase(listFollower), BarReview::class.java)
+                setUseCase(FollowingBeerReviewsUseCase(listFollower), BeerReview::class.java)
             }
             val listFavoriteBar = arguments?.getStringArrayList(ARRAYLIST_FAVORITE_BAR)
             if(!listFavoriteBar.isNullOrEmpty()) {

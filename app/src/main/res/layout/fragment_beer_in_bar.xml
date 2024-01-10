@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="?attr/colorSecondary"
+    >
+
+    <TextView
+        android:id="@+id/beer_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:text="Birre"/>
+
+    <Button
+        android:id="@+id/btn_consiglia_birra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consiglia Birra"
+        android:background="@drawable/rounded_style"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/beer_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="5dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/btn_consiglia_birra"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:minWidth="250dp"
+        />
+
+    <Button
+        android:id="@+id/btn_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/recycler_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="chiudi"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

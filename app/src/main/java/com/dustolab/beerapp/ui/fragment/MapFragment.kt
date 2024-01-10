@@ -58,13 +58,21 @@ class MapFragment: Fragment(R.layout.fragment_map) {
         recyclerView.adapter = cardBarAdapter
 
         setMapManager()
-        setPosition()
         val fabPosition = requireView().findViewById<FloatingActionButton>(R.id.fab_my_position)
         fabPosition.setOnClickListener{
             setPosition()
         }
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             view.findNavController().navigate(R.id.action_global_map)
+        }
+        setPosition()
+        arguments?.let {
+            val uid = requireArguments().getString("uid")
+            val bar = barList.filter {it ->
+                it.uid == uid
+            }.first()
+            mapManager.setLocation(bar.address!!.longitude!!, bar.address!!.latitude!!)
+            setCardBarList(BottomSheetBehavior.STATE_HALF_EXPANDED, bar)
         }
     }
 

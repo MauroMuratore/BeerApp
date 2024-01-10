@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RatingBar
@@ -27,7 +28,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
 
 
-class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
+class BarActivity : Fragment(R.layout.fragment_bar_activity) {
 
     private lateinit var barImage: ImageView
     private lateinit var barName: TextView
@@ -38,7 +39,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
     private lateinit var bar: Bar
     private lateinit var btnMakeReview: Button
     private lateinit var cardReviewAdapter : CardReviewAdapter
-    private lateinit var btnFavorite: ImageButton
+    private lateinit var btnFavorite: CheckBox
     private var favoriteStatus: Boolean = false
     private lateinit var btnMoreReview: Button
     private lateinit var btnBarBeers: Button
@@ -59,7 +60,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
         barTimetables = view.findViewById(R.id.bar_timetables)
         barAddress = view.findViewById(R.id.bar_address)
         btnMakeReview = view.findViewById(R.id.btn_make_review)
-        btnFavorite = view.findViewById<ImageButton>(R.id.btn_favorite)
+        btnFavorite = view.findViewById<CheckBox>(R.id.btn_favorite)
         btnMoreReview = view.findViewById(R.id.btn_more_review)
         btnBarBeers = view.findViewById(R.id.btn_bar_beer)
         btnBarMenu = view.findViewById(R.id.btn_bar_food)
@@ -117,9 +118,10 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
                             ?.navigate(R.id.from_bar_to_all_reviews, useCase)
                     }
                     btnBarBeers.setOnClickListener {
-                        var useCase = bundleOf("uid" to bar.uid, "beerListUseCase" to 2)
+                        var arg = Gson().toJson(bar)
+                        var useCase = bundleOf("bar" to arg)
                         view?.findNavController()
-                            ?.navigate(R.id.from_bar_to_bar_beers, useCase)
+                            ?.navigate(R.id.from_bar_to_beer_in_bar, useCase)
                     }
                     btnBarMenu.setOnClickListener {
                         var arg = Gson().toJson(bar)
@@ -142,10 +144,7 @@ class BarActivity() : Fragment(R.layout.fragment_bar_activity) {
         setFavoriteBtn()
     }
     private fun setFavoriteBtn() {
-        if (favoriteStatus)
-            btnFavorite.setImageResource(R.drawable.baseline_star_24)
-        else
-            btnFavorite.setImageResource(R.drawable.baseline_star_border_24)
+        btnFavorite.isChecked=favoriteStatus
     }
     private fun checkFavorite() {
         if(bar.favoriteBy.isNullOrEmpty())

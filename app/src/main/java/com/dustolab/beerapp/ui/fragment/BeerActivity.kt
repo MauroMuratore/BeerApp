@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RatingBar
@@ -27,7 +28,7 @@ import com.dustolab.beerapp.model.User
 import com.dustolab.beerapp.ui.adapter.CardReviewAdapter
 import com.google.firebase.auth.FirebaseAuth
 
-class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
+class BeerActivity : Fragment(R.layout.fragment_beer_activity) {
 
     private lateinit var beerImage: ImageView
     private lateinit var beerName: TextView
@@ -37,7 +38,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
     private lateinit var beer: Beer
     private lateinit var cardReviewAdapter: CardReviewAdapter
     private lateinit var btnMakeReview: Button
-    private lateinit var btnFavorite: ImageButton
+    private lateinit var btnFavorite: CheckBox
     private var favoriteStatus: Boolean = false
     private val imageRepository: ImageRepository = ImageRepository()
     private lateinit var btnMoreReview: Button
@@ -53,7 +54,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
         beerDescription = view.findViewById(R.id.beer_description)
         beerGrad = view.findViewById(R.id.alcohol_grad)
         btnMakeReview = view.findViewById(R.id.btn_make_review)
-        btnFavorite = view.findViewById<ImageButton>(R.id.btn_favorite)
+        btnFavorite = view.findViewById<CheckBox>(R.id.btn_favorite)
         btnMoreReview = view.findViewById(R.id.btn_more_review)
         setBeerInfo(uid)
     }
@@ -125,10 +126,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
     }
 
     private fun setFavoriteBtn() {
-        if (favoriteStatus)
-            btnFavorite.setImageResource(R.drawable.baseline_star_24)
-        else
-            btnFavorite.setImageResource(R.drawable.baseline_star_border_24)
+        btnFavorite.isChecked=favoriteStatus
     }
 
     private fun checkFavorite() {

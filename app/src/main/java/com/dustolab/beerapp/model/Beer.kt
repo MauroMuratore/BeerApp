@@ -12,5 +12,4 @@ data class Beer(
     var rating: Float? = null,
     var favoriteBy: List<String>? = null
 
-): Record() {
-}
+): Record()

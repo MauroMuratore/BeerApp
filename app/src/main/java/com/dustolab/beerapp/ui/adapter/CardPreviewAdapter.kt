@@ -42,7 +42,7 @@ class CardPreviewAdapter(
 
         imageRepository.loadImage(record.uid!!)
             .addOnSuccessListener { imageByte->
-                val bitmap =  BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size);
+                val bitmap =  BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)
                 holder.image.setImageBitmap(bitmap)
             }
 

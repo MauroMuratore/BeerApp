@@ -5,5 +5,4 @@ data class BeerReview(
     override var rating: Float? = null,
     override var username: String? = null,
     var beer: String? = null
-):  Review(){
-}
+):  Review()

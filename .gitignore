@@ -2,6 +2,7 @@
 .gradle
 gradle.properties
 app/src/google-services.json
+app/build/*
 /local.properties
 /.idea/caches
 /.idea/libraries

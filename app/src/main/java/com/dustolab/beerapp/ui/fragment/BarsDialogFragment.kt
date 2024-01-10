@@ -1,6 +1,8 @@
 package com.dustolab.beerapp.ui.fragment
 
+import android.graphics.Color
 import android.graphics.Point
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -58,6 +60,7 @@ class BarsDialogFragment: DialogFragment() {
         display.getSize(size)
         window.setLayout((size.x * 0.90).toInt(), WindowManager.LayoutParams.WRAP_CONTENT)
         window.setGravity(Gravity.CENTER)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         super.onResume()
     }
 }

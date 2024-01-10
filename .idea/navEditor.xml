@@ -74,7 +74,7 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="fragment_bar_li">
+                  <entry key="fragment_bar_list">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
@@ -110,6 +110,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="from_beer_to_all_reviews">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="from_beer_to_bars">
                               <value>
                                 <LayoutPositions />
                               </value>

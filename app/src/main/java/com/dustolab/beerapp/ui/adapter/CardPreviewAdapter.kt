@@ -23,8 +23,8 @@ class CardPreviewAdapter(
 ): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     class CardHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val image = itemView.findViewById<ImageView>(R.id.bar_image)
-        val text = itemView.findViewById<TextView>(R.id.beer_name)
+        val image = itemView.findViewById<ImageView>(R.id.iv_item)
+        val text = itemView.findViewById<TextView>(R.id.tv_item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

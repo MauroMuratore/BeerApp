@@ -57,25 +57,6 @@ class UserAreaFragment: Fragment(R.layout.fragment_user_area) {
             view.findNavController().navigate(R.id.from_user_area_to_theme)
         }
 
-        val buttonDayNightMode = requireView().findViewById<FloatingActionButton>(R.id.fab_day_night_mode)
-        var currentNightMode = AppCompatDelegate.getDefaultNightMode()
-        if(currentNightMode == AppCompatDelegate.MODE_NIGHT_NO){
-            buttonDayNightMode.setImageResource(R.drawable.baseline_wb_sunny_24)
-        }else{
-            buttonDayNightMode.setImageResource(R.drawable.baseline_nightlight_round_24)
-        }
-
-        buttonDayNightMode.setOnClickListener{
-            var currentNightMode = AppCompatDelegate.getDefaultNightMode()
-
-            if (currentNightMode == AppCompatDelegate.MODE_NIGHT_NO) {
-                buttonDayNightMode.setImageResource(R.drawable.baseline_nightlight_round_24)
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            }else{
-                buttonDayNightMode.setImageResource(R.drawable.baseline_wb_sunny_24)
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
-        }
         val btnLogout = requireView().findViewById<Button>(R.id.btn_logout)
         btnLogout.setOnClickListener {
             logout()

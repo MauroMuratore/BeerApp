@@ -24,6 +24,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:cardCornerRadius="30dp"
                 app:strokeWidth="3dp"
+                app:strokeColor="?attr/colorSecondary"
                 >
 
                 <ImageView

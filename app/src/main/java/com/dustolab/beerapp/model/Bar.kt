@@ -34,4 +34,13 @@ data class Bar(
         }
         return  beers
     }
+
+    fun hasBeer(beerUid: String): Boolean{
+        beerList?.forEach { beer ->
+            if (beer.uid == beerUid)
+                return true
+        }
+        return  false
+
+    }
 }

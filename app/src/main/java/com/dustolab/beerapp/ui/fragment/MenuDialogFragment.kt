@@ -1,10 +1,15 @@
 package com.dustolab.beerapp.ui.fragment
 
+import android.graphics.Color
+import android.graphics.Point
+import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
@@ -54,5 +59,17 @@ class MenuDialogFragment: DialogFragment() {
             dismiss()
         }
         return rootView
+    }
+
+    override fun onResume() {
+        // Set the width of the dialog proportional to 90% of the screen width
+        val window = dialog!!.window
+        val size = Point()
+        val display = window!!.windowManager.defaultDisplay
+        display.getSize(size)
+        window.setLayout((size.x * 0.90).toInt(), WindowManager.LayoutParams.WRAP_CONTENT)
+        window.setGravity(Gravity.CENTER)
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        super.onResume()
     }
 }

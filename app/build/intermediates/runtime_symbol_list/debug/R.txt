@@ -3376,6 +3376,7 @@ int id bar_section 0x7f090295
 int id bar_timetables 0x7f09006c
 int id barrier 0x7f09006d
 int id baseline 0x7f09006e
+int id beer_bar_list_to_bar 0x7f09029a
 int id beer_description 0x7f09006f
 int id beer_image 0x7f090070
 int id beer_name 0x7f090071

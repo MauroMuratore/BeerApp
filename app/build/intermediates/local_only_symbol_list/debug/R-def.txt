@@ -72,6 +72,7 @@ id bar_name
 id bar_recycler_view
 id bar_section
 id bar_timetables
+id beer_bar_list_to_bar
 id beer_description
 id beer_image
 id beer_name

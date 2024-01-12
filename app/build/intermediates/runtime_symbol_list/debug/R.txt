@@ -3158,6 +3158,7 @@ int drawable ic_mtrl_chip_checked_black 0x7f0800bc
 int drawable ic_mtrl_chip_checked_circle 0x7f0800bd
 int drawable ic_mtrl_chip_close_circle 0x7f0800be
 int drawable ic_search_black_24 0x7f0800bf
+int drawable image_border 0x7f080129
 int drawable logo_beerupp 0x7f0800c0
 int drawable m3_appbar_background 0x7f0800c1
 int drawable m3_avd_hide_password 0x7f0800c2
@@ -3581,6 +3582,7 @@ int id ifRoom 0x7f090134
 int id ignore 0x7f090135
 int id ignoreRequest 0x7f090136
 int id image 0x7f090137
+int id image_card 0x7f090299
 int id indeterminate 0x7f090138
 int id info 0x7f090139
 int id inspection_slot_table_set 0x7f09013a

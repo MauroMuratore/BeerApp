@@ -3159,6 +3159,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_search_black_24
+drawable image_border
 drawable logo_beerupp
 drawable m3_appbar_background
 drawable m3_avd_hide_password
@@ -3582,6 +3583,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id image_card
 id indeterminate
 id info
 id inspection_slot_table_set

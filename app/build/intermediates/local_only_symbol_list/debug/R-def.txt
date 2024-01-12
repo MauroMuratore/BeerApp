@@ -39,6 +39,7 @@ drawable baseline_star_border_24
 drawable baseline_wb_sunny_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable image_border
 drawable logo_beerupp
 drawable medal_apprendista
 drawable medal_intenditore
@@ -145,6 +146,7 @@ id from_user_area_to_profile_user
 id from_user_area_to_theme
 id group_filter
 id icon_user
+id image_card
 id item_image
 id item_name
 id item_review_card

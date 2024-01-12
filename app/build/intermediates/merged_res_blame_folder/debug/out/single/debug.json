@@ -8,12 +8,12 @@
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\activity_sign_up.xml"
     },
     {
-        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_bar_beer.xml.flat",
-        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_bar_beer.xml"
-    },
-    {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\navigation_app_nav_graph.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\navigation\\app_nav_graph.xml"
+    },
+    {
+        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_bar_beer.xml.flat",
+        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_bar_beer.xml"
     },
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable_ic_launcher_foreground.xml.flat",
@@ -60,6 +60,10 @@
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable\\logo_beerupp.png"
     },
     {
+        "merged": "com.dustolab.beerapp-merged_res-86:/layout_fragment_beer_activity.xml.flat",
+        "source": "com.dustolab.beerapp-main-88:/layout/fragment_beer_activity.xml"
+    },
+    {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable_baseline_wb_sunny_24.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable\\baseline_wb_sunny_24.xml"
     },
@@ -88,10 +92,6 @@
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable-night\\baseline_search_24.xml"
     },
     {
-        "merged": "com.dustolab.beerapp-merged_res-86:/navigation_app_nav_graph.xml.flat",
-        "source": "com.dustolab.beerapp-main-88:/navigation/app_nav_graph.xml"
-    },
-    {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_fragment_bar_list.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\fragment_bar_list.xml"
     },
@@ -100,12 +100,12 @@
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable-night\\baseline_filter_list_24.xml"
     },
     {
-        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_menu_entry.xml.flat",
-        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_menu_entry.xml"
-    },
-    {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_beer.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_beer.xml"
+    },
+    {
+        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_menu_entry.xml.flat",
+        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_menu_entry.xml"
     },
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -232,12 +232,12 @@
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable\\baseline_beer_24.xml"
     },
     {
-        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\layout_card_preview.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\layout\\card_preview.xml"
+    },
+    {
+        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable_schiuma.png.flat",
@@ -258,6 +258,10 @@
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable_baseline_edit_24.xml.flat",
         "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable\\baseline_edit_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable_image_border.xml.flat",
+        "source": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-main-88:\\drawable\\image_border.xml"
     },
     {
         "merged": "C:\\Users\\nikbe\\.gradle\\daemon\\8.0\\com.dustolab.beerapp-merged_res-86:\\drawable_medal_apprendista.png.flat",

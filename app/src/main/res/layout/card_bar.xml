@@ -56,7 +56,9 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:text="Lorem Ipsum"
-                android:gravity="center_vertical"
+                android:gravity="center"
+                android:textSize="17sp"
+                android:textStyle="bold"
                 android:padding="5dp"
                 app:layout_constraintBottom_toTopOf="@id/tv_address"
                 app:layout_constraintLeft_toRightOf="@+id/image_card"
@@ -69,7 +71,8 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:text="Lorem Ipsum"
-                android:gravity="center_vertical"
+                android:gravity="center"
+                android:textSize="15sp"
                 android:padding="5dp"
                 app:layout_constraintTop_toBottomOf="@id/tv_title"
                 app:layout_constraintLeft_toRightOf="@+id/image_card"
@@ -77,7 +80,7 @@
                 app:layout_constraintBottom_toTopOf="@id/layout_rating"
                 />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_rating"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -85,6 +88,7 @@
                 app:layout_constraintLeft_toRightOf="@id/image_card"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+
                 >
 
                 <RatingBar
@@ -98,9 +102,15 @@
                     android:numStars="5"
                     android:rating="2.5"
                     android:layout_gravity="center"
+                    android:scaleY="1.5"
+                    android:scaleX="1.5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
                     />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

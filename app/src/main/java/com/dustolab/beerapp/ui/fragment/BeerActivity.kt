@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RatingBar
@@ -15,19 +16,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
+import com.dustolab.beerapp.logic.usecase.AllBarUseCase
 import com.dustolab.beerapp.logic.usecase.BeerReviewsUseCase
 import com.dustolab.beerapp.logic.usecase.BeerUseCase
 import com.dustolab.beerapp.logic.usecase.UpdateFavBeerUseCase
-import com.dustolab.beerapp.logic.usecase.UseCase
-import com.dustolab.beerapp.logic.usecase.UserUseCase
+import com.dustolab.beerapp.model.Bar
 import com.dustolab.beerapp.model.Beer
 import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review
-import com.dustolab.beerapp.model.User
 import com.dustolab.beerapp.ui.adapter.CardReviewAdapter
 import com.google.firebase.auth.FirebaseAuth
+import com.google.gson.Gson
 
-class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
+class BeerActivity : Fragment(R.layout.fragment_beer_activity) {
 
     private lateinit var beerImage: ImageView
     private lateinit var beerName: TextView
@@ -35,9 +36,12 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
     private lateinit var beerDescription: TextView
     private lateinit var beerGrad: TextView
     private lateinit var beer: Beer
+    private var bars: ArrayList<Bar> = ArrayList()
+
     private lateinit var cardReviewAdapter: CardReviewAdapter
     private lateinit var btnMakeReview: Button
-    private lateinit var btnFavorite: ImageButton
+    private lateinit var btnFavorite: CheckBox
+    private lateinit var btnBeerBars: Button
     private var favoriteStatus: Boolean = false
     private val imageRepository: ImageRepository = ImageRepository()
     private lateinit var btnMoreReview: Button
@@ -53,8 +57,9 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
         beerDescription = view.findViewById(R.id.beer_description)
         beerGrad = view.findViewById(R.id.alcohol_grad)
         btnMakeReview = view.findViewById(R.id.btn_make_review)
-        btnFavorite = view.findViewById<ImageButton>(R.id.btn_favorite)
+        btnFavorite = view.findViewById<CheckBox>(R.id.btn_favorite)
         btnMoreReview = view.findViewById(R.id.btn_more_review)
+        btnBeerBars = view.findViewById(R.id.btn_find_bars)
         setBeerInfo(uid)
     }
 
@@ -108,6 +113,23 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
                         view?.findNavController()
                             ?.navigate(R.id.from_beer_to_all_reviews, useCase)
                     }
+                    btnBeerBars.setOnClickListener{
+                        bars.clear()
+                        var allBarUseCase = AllBarUseCase()
+                        allBarUseCase.useCase()
+                            .addOnSuccessListener { documents ->
+                                documents.forEach{ doc ->
+                                    var elem = doc.toObject(Bar::class.java)
+                                    if (elem.hasBeer(uid))
+                                        bars.add(elem)
+                                }
+                                var jsonString = Gson().toJson(bars)
+                                var bundle = bundleOf("bars" to jsonString)
+                                view?.findNavController()
+                                    ?.navigate(R.id.from_beer_to_bars, bundle)
+
+                            }
+                    }
                 }
             }
     }
@@ -125,10 +147,7 @@ class BeerActivity() : Fragment(R.layout.fragment_beer_activity) {
     }
 
     private fun setFavoriteBtn() {
-        if (favoriteStatus)
-            btnFavorite.setImageResource(R.drawable.baseline_star_24)
-        else
-            btnFavorite.setImageResource(R.drawable.baseline_star_border_24)
+        btnFavorite.isChecked=favoriteStatus
     }
 
     private fun checkFavorite() {

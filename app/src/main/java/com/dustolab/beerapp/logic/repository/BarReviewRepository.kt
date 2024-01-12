@@ -14,12 +14,12 @@ class BarReviewRepository(
     fun loadBarReview(uid: String, limit: Long): Task<QuerySnapshot> {
         if(limit > 0)
             return dbReference
-                .whereEqualTo(BarReviewRepository.BAR, uid)
+                .whereEqualTo(BAR, uid)
                 .limit(limit)
                 .get()
         else
             return dbReference
-                .whereEqualTo(BarReviewRepository.BAR, uid)
+                .whereEqualTo(BAR, uid)
                 .get()
     }
     fun loadAllBarReview(): Task<QuerySnapshot>{

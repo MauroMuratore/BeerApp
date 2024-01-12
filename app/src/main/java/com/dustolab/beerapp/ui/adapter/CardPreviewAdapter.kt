@@ -24,7 +24,7 @@ class CardPreviewAdapter(
 
     class CardHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val image = itemView.findViewById<ImageView>(R.id.bar_image)
-        val text = itemView.findViewById<TextView>(R.id.beer_name)
+        val text = itemView.findViewById<TextView>(R.id.tv_item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -42,7 +42,7 @@ class CardPreviewAdapter(
 
         imageRepository.loadImage(record.uid!!)
             .addOnSuccessListener { imageByte->
-                val bitmap =  BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size);
+                val bitmap =  BitmapFactory.decodeByteArray(imageByte, 0, imageByte.size)
                 holder.image.setImageBitmap(bitmap)
             }
 

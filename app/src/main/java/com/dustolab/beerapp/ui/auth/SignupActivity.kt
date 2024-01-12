@@ -10,6 +10,8 @@ import com.dustolab.beerapp.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.usecase.auth.SignupUseCase
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 class SignupActivity : AppCompatActivity(R.layout.activity_sign_up) {
@@ -40,7 +42,7 @@ class SignupActivity : AppCompatActivity(R.layout.activity_sign_up) {
                             startActivity(Intent(this, MainActivity::class.java))
                             finish()
                         }else{
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, it.exception!!.message, Toast.LENGTH_SHORT).show()
                         }
                     }
             }else{

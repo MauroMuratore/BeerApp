@@ -54,7 +54,12 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="from_bar_to_bar_beers">
+                            <entry key="from_bar_to_bar_menu">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="from_bar_to_beer_in_bar">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -64,7 +69,45 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="from_bar_to_map">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragment_bar_list">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="beer_bar_list_to_bar">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragment_bar_menu">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1688" />
+                            <option name="y" value="-553" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -85,12 +128,29 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="from_beer_to_bars">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="from_beer_to_make_a_review">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragment_beer_in_bar">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="256" />
+                            <option name="y" value="12" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -140,6 +200,12 @@
                   <entry key="fragment_home">
                     <value>
                       <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_home_to_bar">
@@ -162,8 +228,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="744" />
-                            <option name="y" value="410" />
+                            <option name="x" value="1120" />
+                            <option name="y" value="-732" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -314,6 +380,11 @@
                           </map>
                         </option>
                       </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="from_beer_in_bar_to_beer">
+                    <value>
+                      <LayoutPositions />
                     </value>
                   </entry>
                 </map>

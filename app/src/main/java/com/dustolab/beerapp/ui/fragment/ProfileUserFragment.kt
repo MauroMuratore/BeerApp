@@ -27,7 +27,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
-class ProfileUserFragment(): Fragment(R.layout.fragment_profile_user) {
+class ProfileUserFragment : Fragment(R.layout.fragment_profile_user) {
 
     private val userViewModel: UserViewModel by viewModels()
     private var reviewList: ArrayList<Review> = ArrayList()
@@ -48,7 +48,7 @@ class ProfileUserFragment(): Fragment(R.layout.fragment_profile_user) {
         postAdapter = PostAdapter(requireContext(), reviewList, false)
         recyclerView.adapter = postAdapter
         userUid = arguments?.getString(KEY_USER_UID)!!
-        val listUser = arrayListOf<String>(userUid!!)
+        val listUser = arrayListOf<String>(userUid)
         reviewList.clear()
         setUseCase(FollowingBarReviewsUseCase(listUser), BarReview::class.java)
         setUseCase(FollowingBeerReviewsUseCase(listUser), BeerReview::class.java)

@@ -36,7 +36,7 @@ class MapManager(
 ) {
 
     fun showMap(): MapboxMap {
-        mapView.getMapboxMap()?.loadStyleUri(Style.MAPBOX_STREETS)
+        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS)
         return mapView.getMapboxMap()
     }
 
@@ -45,7 +45,7 @@ class MapManager(
             context,
             R.drawable.red_marker
         )
-        val annotationApi = mapView?.annotations
+        val annotationApi = mapView.annotations
         val pointAnnotationManager = annotationApi?.createPointAnnotationManager()
 
         val pointAnnotationOptions: PointAnnotationOptions = PointAnnotationOptions()
@@ -68,7 +68,7 @@ class MapManager(
             .withCircleColor("#ee4e8b")
             .withCircleStrokeWidth(2.0)
             .withCircleStrokeColor("#ffffff")
-        circleAnnotationManager?.create(circleAnnotationOptions)
+        circleAnnotationManager.create(circleAnnotationOptions)
     }
 
     fun setLocation(longitude: Double, latitude: Double) {

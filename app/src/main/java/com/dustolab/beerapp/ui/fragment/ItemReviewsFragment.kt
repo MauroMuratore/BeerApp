@@ -16,7 +16,7 @@ import com.dustolab.beerapp.model.BeerReview
 import com.dustolab.beerapp.model.Review
 import com.dustolab.beerapp.ui.adapter.CardReviewAdapter
 
-class ItemReviewsFragment() : Fragment(R.layout.fragment_tab_social) {
+class ItemReviewsFragment : Fragment(R.layout.fragment_tab_social) {
     private lateinit var reviews: ArrayList<Review>
     private lateinit var cardReviewAdapter: CardReviewAdapter
 

@@ -7,5 +7,4 @@ data class User(
     var favoriteBar : ArrayList<String>? = null,
     var favoriteBeers: ArrayList<String>? = null,
     var following: ArrayList<String>? = null
-) {
-}
+)

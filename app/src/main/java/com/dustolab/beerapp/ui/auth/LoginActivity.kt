@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity(R.layout.activity_log_in) {
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }else{
-                Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Credenziali non corrette", Toast.LENGTH_SHORT).show()
             }
         }
     }

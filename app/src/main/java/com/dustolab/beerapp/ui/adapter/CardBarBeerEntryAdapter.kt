@@ -50,7 +50,7 @@ class CardBarBeerEntryAdapter(
                     holder.tvBeerStyle.text = item.style
                 }
             }
-        holder.tvBeerCost.text = price
+        holder.tvBeerCost.text = price + "0 €"
         val supp = this
         holder.itemView.setOnClickListener{view ->
             var bundle = bundleOf(

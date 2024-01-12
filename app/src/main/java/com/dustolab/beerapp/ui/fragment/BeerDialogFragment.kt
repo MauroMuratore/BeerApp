@@ -1,5 +1,7 @@
 package com.dustolab.beerapp.ui.fragment
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -76,6 +78,7 @@ class BeerDialogFragment: DialogFragment() {
         btnClose.setOnClickListener {
             dismiss()
         }
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return  rootView
     }
 }

@@ -8,12 +8,12 @@
         "source": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-main-88:/drawable/baseline_map_24.xml"
     },
     {
-        "merged": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-merged_res-86:/layout_card_beer.xml.flat",
-        "source": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-main-88:/layout/card_beer.xml"
-    },
-    {
         "merged": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-merged_res-86:/layout_post.xml.flat",
         "source": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-main-88:/layout/post.xml"
+    },
+    {
+        "merged": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-merged_res-86:/layout_card_beer.xml.flat",
+        "source": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-main-88:/layout/card_beer.xml"
     },
     {
         "merged": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-merged_res-86:/drawable_baseline_add_24.xml.flat",
@@ -232,6 +232,10 @@
         "source": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-main-88:/layout/fragment_make_review.xml"
     },
     {
+        "merged": "com.dustolab.beerapp-merged_res-86:/layout_card_menu_entry.xml.flat",
+        "source": "com.dustolab.beerapp-main-88:/layout/card_menu_entry.xml"
+    },
+    {
         "merged": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-merged_res-86:/drawable_ic_launcher_background.xml.flat",
         "source": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-main-88:/drawable/ic_launcher_background.xml"
     },
@@ -290,10 +294,6 @@
     {
         "merged": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-merged_res-86:/xml_backup_rules.xml.flat",
         "source": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-main-88:/xml/backup_rules.xml"
-    },
-    {
-        "merged": "com.dustolab.beerapp-merged_res-86:/drawable_image_border.xml.flat",
-        "source": "com.dustolab.beerapp-main-88:/drawable/image_border.xml"
     },
     {
         "merged": "/home/mauro/.gradle/daemon/8.0/com.dustolab.beerapp-merged_res-86:/mipmap-anydpi-v26_ic_launcher.xml.flat",

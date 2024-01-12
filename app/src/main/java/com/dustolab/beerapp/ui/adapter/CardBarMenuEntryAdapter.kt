@@ -33,6 +33,6 @@ class CardBarMenuEntryAdapter(
         holder as CardBarMenuEntryHolder
         var price = entry.price.toString()
         holder.tvFoodName.text = entry.name
-        holder.tvFoodCost.text = price
+        holder.tvFoodCost.text = price + "0 €"
     }
 }

@@ -1,59 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center_horizontal">
-
-    <TextView
-        android:id="@+id/food_section"
+    android:backgroundTint="@android:color/transparent"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:text="Cibi"/>
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rounded_style"
+        android:backgroundTint="?attr/colorSecondary"
+        >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_menu_food"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/food_section"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:minWidth="250dp"
-        />
+        <TextView
+            android:id="@+id/food_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:text="Cibi"/>
 
-    <TextView
-        android:id="@+id/drink_section"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/recycler_view_menu_food"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        android:text="Bevande"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_menu_food"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/food_section"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:minWidth="250dp"
+            />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_menu_drink"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/drink_section"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:minWidth="250dp"
-        />
+        <TextView
+            android:id="@+id/drink_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_menu_food"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:text="Bevande"/>
 
-    <Button
-        android:id="@+id/btn_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/recycler_view_menu_drink"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="chiudi"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_menu_drink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/drink_section"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:minWidth="250dp"
+            />
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/recycler_view_menu_drink"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="chiudi"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

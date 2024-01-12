@@ -54,7 +54,7 @@ class MapFragment: Fragment(R.layout.fragment_map) {
 
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.bar_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        cardBarAdapter = CardBarAdapter(requireContext(), cardBarList)
+        cardBarAdapter = CardBarAdapter(this, R.id.from_bar_list_to_bar, requireContext(), cardBarList)
         recyclerView.adapter = cardBarAdapter
 
         setMapManager()

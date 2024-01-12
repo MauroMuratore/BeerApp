@@ -155,8 +155,6 @@
         <action
             android:id="@+id/from_beer_to_bars"
             app:destination="@+id/fragment_bar_list"
-            app:popUpTo="@id/fragment_bar_activity"
-            app:popUpToInclusive="false"
             />
     </fragment>
 
@@ -219,8 +217,6 @@
         <action
             android:id="@+id/beer_bar_list_to_bar"
             app:destination="@+id/fragment_bar_activity"
-            app:popUpTo="@id/fragment_bar_list"
-            app:popUpToInclusive="false"
             />
     </dialog>
 

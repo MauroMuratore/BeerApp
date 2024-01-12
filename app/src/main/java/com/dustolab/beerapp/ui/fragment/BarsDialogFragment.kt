@@ -43,7 +43,7 @@ class BarsDialogFragment: DialogFragment() {
         recyclerViewBars.layoutManager = LinearLayoutManager(context)
 
 
-        cardBarAdapter = CardBarAdapter(requireContext(), barList)
+        cardBarAdapter = CardBarAdapter(this, R.id.beer_bar_list_to_bar, requireContext(), barList)
         recyclerViewBars.adapter = cardBarAdapter
 
         btnClose.setOnClickListener{

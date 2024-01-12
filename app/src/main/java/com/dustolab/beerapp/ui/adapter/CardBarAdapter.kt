@@ -9,13 +9,17 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dustolab.beerapp.R
 import com.dustolab.beerapp.logic.repository.ImageRepository
 import com.dustolab.beerapp.model.Bar
 
 class CardBarAdapter(
+    val fragment: Fragment,
+    val route: Int,
     val context: Context,
     val barList: List<Bar>,
     private val imageRepository: ImageRepository = ImageRepository()
@@ -54,8 +58,8 @@ class CardBarAdapter(
 
         holder.itemView.setOnClickListener{ view ->
             var useCase = bundleOf("uid" to bar.uid)
-            view.findNavController()
-                .navigate(R.id.from_bar_list_to_bar, useCase)
+            fragment.findNavController()
+                .navigate(route, useCase)
         }
     }
 

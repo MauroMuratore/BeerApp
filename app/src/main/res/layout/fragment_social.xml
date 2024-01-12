@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Social"
-        android:textSize="24dp"
+        android:textSize="24sp"
         android:textStyle="bold"/>
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"

@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Elenco Birre"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

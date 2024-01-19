@@ -5,6 +5,7 @@ import android.app.UiModeManager
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
@@ -19,12 +20,14 @@ import com.dustolab.beerapp.ui.fragment.HomeFragment
 import com.dustolab.beerapp.ui.fragment.MapFragment
 import com.dustolab.beerapp.ui.fragment.SocialFragment
 import com.dustolab.beerapp.ui.fragment.UserAreaFragment
+import com.dustolab.beerapp.viewModel.UserViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity:  AppCompatActivity(R.layout.activity_main) {
+    private val userViewModel by viewModels<UserViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        userViewModel.fetchUser()
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragment_container) as NavHostFragment

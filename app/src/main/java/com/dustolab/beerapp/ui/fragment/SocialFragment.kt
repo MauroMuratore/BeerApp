@@ -6,7 +6,9 @@ import android.view.View
 import androidx.activity.addCallback
 import com.dustolab.beerapp.R
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +28,7 @@ import kotlinx.coroutines.launch
 
 class SocialFragment : Fragment(R.layout.fragment_social){
 
+    private val userViewModel : UserViewModel by activityViewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setTabs()
@@ -39,8 +42,20 @@ class SocialFragment : Fragment(R.layout.fragment_social){
     private fun setTabs(){
 
         val tabLayout = requireView().findViewById<TabLayout>(R.id.tab_layout)
-        val userViewModel: UserViewModel by viewModels()
         val thisFragment = this
+        userViewModel.user.observe(viewLifecycleOwner, Observer { user ->
+            val tabSocialAdapter = TabSocialAdapter(thisFragment, user)
+            val viewPager2 = requireView().findViewById<ViewPager2>(R.id.view_pager_2)
+            viewPager2.adapter = tabSocialAdapter
+            TabLayoutMediator(tabLayout,viewPager2){tab, position ->
+                if(position==0){
+                    tab.text="Popolari"
+                }else{
+                    tab.text="Seguiti"
+                }
+            }.attach()
+        })
+        /*
         lifecycleScope.launch {
             userViewModel.fetchUser()
             Log.d("BEER_FR", "${userViewModel.user}")
@@ -56,6 +71,7 @@ class SocialFragment : Fragment(R.layout.fragment_social){
                 }
             }.attach()
         }
+         */
         requireActivity().onBackPressedDispatcher.addCallback (this){
             requireView().findNavController().navigate(R.id.action_global_home)
         }

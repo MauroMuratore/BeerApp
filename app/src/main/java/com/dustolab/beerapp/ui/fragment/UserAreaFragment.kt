@@ -11,7 +11,9 @@ import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.dustolab.beerapp.R
@@ -25,9 +27,15 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.launch
 
 class UserAreaFragment: Fragment(R.layout.fragment_user_area) {
+    private val userViewModel: UserViewModel by activityViewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        userViewModel.user.observe(viewLifecycleOwner, Observer { user ->
+            val titleUser = requireView().findViewById<TextView>(R.id.title_user)
+            titleUser.text = user.username
+        })
 
+/*
         lifecycleScope.launch {
             val userViewModel: UserViewModel by viewModels()
             userViewModel.fetchUser()
@@ -35,8 +43,18 @@ class UserAreaFragment: Fragment(R.layout.fragment_user_area) {
             titleUser.text = userViewModel.user!!.username
 
         }
-
+ */
         val btnGestioneProfilo = requireView().findViewById<Button>(R.id.btn_gestione_profilo)
+
+        btnGestioneProfilo.setOnClickListener {
+            userViewModel.user.observe(viewLifecycleOwner, Observer { user ->
+                val bundleUser = bundleOf("userUid" to user.uid,
+                    "username" to user.username)
+                view.findNavController().navigate(R.id.from_user_area_to_profile_user, bundleUser)
+            })
+        }
+
+/*
         btnGestioneProfilo.setOnClickListener {
             lifecycleScope.launch {
                 val userViewModel: UserViewModel by viewModels()
@@ -46,7 +64,7 @@ class UserAreaFragment: Fragment(R.layout.fragment_user_area) {
                 view.findNavController().navigate(R.id.from_user_area_to_profile_user, bundleUser)
             }
         }
-
+*/
         val btnFollowing = requireView().findViewById<Button>(R.id.btn_following)
         btnFollowing.setOnClickListener{
             view.findNavController().navigate(R.id.from_user_area_to_following)

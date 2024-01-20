@@ -12,7 +12,7 @@
         android:roundIcon="@drawable/ic_logo_beerupp"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeerApp"
-        tools:targetApi="31">
+        tools:targetApi="32">
         <activity
             android:name=".ui.auth.BootActivity"
             android:exported="true"
@@ -25,24 +25,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false"
+            android:screenOrientation="portrait"
+            />
 
 
-        <activity android:name=".ui.HomeActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".ui.auth.SignupActivity"
-            android:exported="false"
-            />
-        <activity
-            android:name=".ui.BeerListActivity"
-            android:exported="false"
-            />
-        <activity
-            android:name=".ui.SocialActivity"
             android:exported="false"
             />
     </application>

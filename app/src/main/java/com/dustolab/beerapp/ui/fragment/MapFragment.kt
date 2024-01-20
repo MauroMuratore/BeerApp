@@ -52,6 +52,12 @@ class MapFragment: Fragment(R.layout.fragment_map) {
         val bottomSheet = requireView().findViewById<FrameLayout>(R.id.bottom_sheet)
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
 
+        val dragButton = requireView().findViewById<View>(R.id.drag_btn)
+        dragButton.setOnClickListener {
+            if(bottomSheetBehavior.state== BottomSheetBehavior.STATE_COLLAPSED)
+                bottomSheetBehavior.state=BottomSheetBehavior.STATE_HALF_EXPANDED
+        }
+
         val recyclerView = requireView().findViewById<RecyclerView>(R.id.bar_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
         cardBarAdapter = CardBarAdapter(this, R.id.from_bar_list_to_bar, requireContext(), cardBarList)
@@ -173,6 +179,7 @@ class MapFragment: Fragment(R.layout.fragment_map) {
     }
     private fun setCardBarList(state: Int, vararg bar: Bar){
         cardBarList.clear()
+        cardBarAdapter.notifyDataSetChanged()
         cardBarList.addAll(bar)
         cardBarAdapter.notifyDataSetChanged()
         bottomSheetBehavior.state = state

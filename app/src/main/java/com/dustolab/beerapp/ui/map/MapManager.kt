@@ -46,7 +46,7 @@ class MapManager(
             R.drawable.red_marker
         )
         val annotationApi = mapView.annotations
-        val pointAnnotationManager = annotationApi?.createPointAnnotationManager()
+        val pointAnnotationManager = annotationApi.createPointAnnotationManager()
 
         val pointAnnotationOptions: PointAnnotationOptions = PointAnnotationOptions()
             .withPoint(Point.fromLngLat(longitude,latitude))

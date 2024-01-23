@@ -31,9 +31,9 @@ class BarsDialogFragment: DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         var rootView: View = inflater.inflate(R.layout.fragment_bar_list, container, false)
-        var jsonBar = requireArguments()?.getString("bars")
+        var jsonBar = requireArguments().getString("bars")
         val sType = object : TypeToken<List<Bar>>() { }.type
         barList = Gson().fromJson<List<Bar>>(jsonBar, sType)
 

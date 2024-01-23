@@ -5,6 +5,7 @@ import com.dustolab.beerapp.model.User
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Filter
 import com.google.firebase.firestore.QuerySnapshot
@@ -27,10 +28,9 @@ class UserRepository(
         )
         dbReference.document(idUser).set(userMap)
     }
-    suspend fun getLocalUser(): User {
+    fun getLocalUser(): Task<DocumentSnapshot> {
         val userUid = Firebase.auth.uid!!
         val ritorno = dbReference.document(userUid).get()
-            .await().toObject(User::class.java)!!
         Log.d("BEER_REPO", "${ritorno}")
         return ritorno
     }

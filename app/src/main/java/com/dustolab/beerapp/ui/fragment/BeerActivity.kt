@@ -94,7 +94,7 @@ class BeerActivity : Fragment(R.layout.fragment_beer_activity) {
                             beerImage.setImageBitmap(bitmap)
                         }
                     beerName.text = beer.name
-                    beerDescription.text = beer.description
+                    beerDescription.text = beer.descriptionIt
                     beerGrad.text = beer.alcoholContent.toString()
                     beerRatingBar.rating = beer.rating!!
                     checkFavorite()

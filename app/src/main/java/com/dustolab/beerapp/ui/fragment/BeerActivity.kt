@@ -35,6 +35,8 @@ class BeerActivity : Fragment(R.layout.fragment_beer_activity) {
     private lateinit var beerRatingBar: RatingBar
     private lateinit var beerDescription: TextView
     private lateinit var beerGrad: TextView
+    private lateinit var beerStyle: TextView
+    private lateinit var beerBrewery: TextView
     private lateinit var beer: Beer
     private var bars: ArrayList<Bar> = ArrayList()
 
@@ -56,6 +58,8 @@ class BeerActivity : Fragment(R.layout.fragment_beer_activity) {
         beerRatingBar = view.findViewById(R.id.rating_bar)
         beerDescription = view.findViewById(R.id.beer_description)
         beerGrad = view.findViewById(R.id.alcohol_grad)
+        beerStyle = view.findViewById(R.id.tv_style)
+        beerBrewery = view.findViewById(R.id.tv_brewery)
         btnMakeReview = view.findViewById(R.id.btn_make_review)
         btnFavorite = view.findViewById<CheckBox>(R.id.btn_favorite)
         btnMoreReview = view.findViewById(R.id.btn_more_review)
@@ -97,6 +101,8 @@ class BeerActivity : Fragment(R.layout.fragment_beer_activity) {
                     beerDescription.text = beer.descriptionIt
                     beerGrad.text = beer.alcoholContent.toString()
                     beerRatingBar.rating = beer.rating!!
+                    beerStyle.text = beer.style
+                    beerBrewery.text = beer.brewery
                     checkFavorite()
                     setFavoriteBtn()
                     setRecyclerView()

@@ -94,28 +94,83 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/alcohol_grad"
+                android:id="@+id/text0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/linear1"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:text="gradazione alcolica"
-                android:layout_marginTop="10dp"/>
+                android:text="Gradazione alcolica: "
+                android:layout_marginTop="15dp"/>
+            <TextView
+                android:id="@+id/alcohol_grad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/text0"
+                app:layout_constraintTop_toBottomOf="@id/linear1"
+                app:layout_constraintBottom_toTopOf="@id/text1"
+                android:text=""
+                android:background="@drawable/rounded_style"
+                android:backgroundTint="?attr/cardBackgroundColor"
+                android:padding="5dp"/>
 
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/alcohol_grad"
+                app:layout_constraintTop_toBottomOf="@id/text0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="Stile: "
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text0"
+                app:layout_constraintLeft_toRightOf="@id/text1"
+                app:layout_constraintBottom_toTopOf="@+id/text2"
+                android:text=""
+                android:background="@drawable/rounded_style"
+                android:backgroundTint="?attr/cardBackgroundColor"
+                android:padding="5dp"/>
+
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="Birrificio: "
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:id="@+id/tv_brewery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tv_style"
+                app:layout_constraintLeft_toRightOf="@id/text2"
+                app:layout_constraintBottom_toTopOf="@id/text3"
+                android:text=""
+                android:background="@drawable/rounded_style"
+                android:backgroundTint="?attr/cardBackgroundColor"
+                android:padding="5dp"/>
+
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text2"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:text="Descrizione"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="15dp"/>
 
             <TextView
                 android:id="@+id/beer_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/text1"
+                app:layout_constraintTop_toBottomOf="@id/text3"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:background="@drawable/rounded_style"
                 android:backgroundTint="?attr/cardBackgroundColor"
@@ -128,13 +183,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/beer_description"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/text2"
+                app:layout_constraintBottom_toTopOf="@id/text4"
                 android:text="Trova bar"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:id="@+id/text2"
+                android:id="@+id/text4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/btn_find_bars"
@@ -146,7 +201,7 @@
                 android:id="@+id/linear2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/text2"
+                app:layout_constraintTop_toBottomOf="@id/text4"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:orientation="vertical">
 
